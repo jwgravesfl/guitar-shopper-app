@@ -22,7 +22,7 @@ const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
 )(
   ({ user, children }) =>
-    <div>
+    (<div>
       <nav>
         {user ? <WhoAmI/> : <Login/>}
       </nav>
@@ -33,7 +33,7 @@ const ExampleApp = connect(
           <Route component={NotFound} />
         </Switch>
       </main>
-    </div>
+    </div>)
 )
 
 render(

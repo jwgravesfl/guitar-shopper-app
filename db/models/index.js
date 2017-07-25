@@ -17,7 +17,11 @@ const app = require('APP')
       User: require('./user'),
       Guitar: require('./guitar'),
       Brand: require('./brand'),
-      Favorite: require('./favorite'),
+      Cart: require('./cart'),
+      PurchaseItem: require('./purchaseItem'),
+      Order: require('./order'),
+      Carts_Guitars: require('./carts_guitars')
+      // Favorite: require('./favorite'),
       // ---------- Add new models here ----------
     }
     , {mapValues} = require('lodash')
