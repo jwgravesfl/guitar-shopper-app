@@ -18,6 +18,8 @@ export default class Main extends Component {
         store.dispatch(brandsThunk);
     }
 
+
+export default class Main extends Component {
     render() {
         return (
             <div>
