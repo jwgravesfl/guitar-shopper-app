@@ -11,18 +11,8 @@ import Navbar from './Navbar';
 // import ChangeStudent from './ChangeStudent';
 // import ChangeCampus from './ChangeCampus';
 // import HomePage from './HomePage'
-// import store, { fetchStudents, fetchCampuses } from '../store';
 
 export default class Main extends Component {
-
-
-    // componentDidMount() {
-    //     const studentsThunk = fetchStudents();
-    //     const campusesThunk = fetchCampuses();
-    //     store.dispatch(studentsThunk);
-    //     store.dispatch(campusesThunk);
-    // }
-
     render() {
         return (
             <div>
