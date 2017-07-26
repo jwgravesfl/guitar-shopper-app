@@ -1,4 +1,6 @@
 'use strict'
+const cheerio = require('cheerio');
+const request = require('request');
 
 const db = require('APP/db')
     , {User, Thing, Favorite, Promise} = db
