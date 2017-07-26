@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize')
 
 module.exports = db => db.define('guitars', {
-  name: {
+  model: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -25,7 +25,7 @@ module.exports = db => db.define('guitars', {
   price: {
     type: Sequelize.FLOAT,
     allowNull: false
-  } 
+  }
 })
 
 // module.exports.associations = (Thing, {User, Favorite}) => {
