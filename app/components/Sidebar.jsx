@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default class Sidebar extends Component {
+class Sidebar extends Component {
 
     constructor(props) {
         super(props)
@@ -13,16 +13,25 @@ export default class Sidebar extends Component {
         const sampleBrands = ['Martin', 'Fender', 'Taylor', 'Gibson']
         const samplePrices = ['100-200', '200-400', '500-900', '1000+']
 
+        const {guitars} = this.props;
+
         return (
             <sidebar>
                 <img src="Rock-Guitar-icon.png" className="logo" />
-                <h3>Search By Brand:</h3>
+                <h3>Search By Brand (these are guitars bro):</h3>
         <ul className="sidebarUl">
-          <li>Brand 1 <span><input type="checkbox" /></span></li>
+            {
+                guitars.map(guitar => {
+                    return (
+                        <li>{guitar} <span><input type="checkbox" /></span></li>
+                    )
+                })
+            }
+          {/*<li>Brand 1 <span><input type="checkbox" /></span></li>
           <li>Brand 2 <span><input type="checkbox" /></span></li>
           <li>Brand 3 <span><input type="checkbox" /></span></li>
           <li>Brand 4 <span><input type="checkbox" /></span></li>
-          <li>Brand 5 <span><input type="checkbox" /></span></li>
+          <li>Brand 5 <span><input type="checkbox" /></span></li>*/}
         </ul>
         <h3>Search By Types:</h3>
         <ul className="sidebarUl">
@@ -43,12 +52,11 @@ export default class Sidebar extends Component {
 }
 
 
-// const mapStateToProps = (state) => {
-//   return {
-//     guitars,
-//     filteredGuitars
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    guitars: state.guitars
+  }
+}
 
 // const mapDispatchToProps = (dispatch) => {
 //   return {
@@ -58,4 +66,4 @@ export default class Sidebar extends Component {
 //   }
 // }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(mapStateToProps)(Sidebar);
