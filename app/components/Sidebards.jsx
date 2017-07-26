@@ -1,22 +1,16 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-export default class Sidebar extends Component {
+class Sidebar extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-    constructor(props) {
-        super(props)
-    }
+  render() {
 
-    render() {
-
-        const sampleBrands = ['Martin', 'Fender', 'Taylor', 'Gibson']
-        const samplePrices = ['100-200', '200-400', '500-900', '1000+']
-
-        return (
-            <sidebar>
-                <img src="Rock-Guitar-icon.png" className="logo" />
-                <h3>Search By Brand:</h3>
+    return (
+      <div className="sidebarContainer">
+        <h3>Search By Brand:</h3>
         <ul className="sidebarUl">
           <li>Brand 1 <span><input type="checkbox" /></span></li>
           <li>Brand 2 <span><input type="checkbox" /></span></li>
@@ -37,25 +31,24 @@ export default class Sidebar extends Component {
           <li>$400 - $500 <span><input type="checkbox" /></span></li>
           <li>$501+ <span><input type="checkbox" /></span></li>
         </ul>
-            </sidebar>
-        );
-    }
+      </div>
+    )
+  }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    guitars,
+    filteredGuitars
+  }
+}
 
-// const mapStateToProps = (state) => {
-//   return {
-//     guitars,
-//     filteredGuitars
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    filterGuitars(filterTermsObj) {
+      dispatch(filterGuitars(filterTermsObj));
+    }
+  }
+}
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     filterGuitars(filterTermsObj) {
-//       dispatch(filterGuitars(filterTermsObj));
-//     }
-//   }
-// }
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
