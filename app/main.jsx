@@ -13,12 +13,14 @@ import {Provider, connect} from 'react-redux'
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
 import store from './store'
+import Main from './components/Main'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import NotFound from './components/NotFound'
 
-const ExampleApp = connect(
+
+/*const ExampleApp = connect(
   ({ auth }) => ({ user: auth })
 )(
   ({ user, children }) =>
@@ -34,12 +36,12 @@ const ExampleApp = connect(
         </Switch>
       </main>
     </div>)
-)
+)*/
 
 render(
   <Provider store={store}>
     <Router>
-      <ExampleApp />
+      <Main />
     </Router>
   </Provider>,
   document.getElementById('main')
