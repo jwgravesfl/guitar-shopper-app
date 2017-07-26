@@ -33,4 +33,4 @@ module.exports = require('express').Router()
             }
         })
             .then(guitar => res.json(guitar))
-            .catch(next))
+            .catch(next));
