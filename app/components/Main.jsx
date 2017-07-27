@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
-import store from '../store';
 import {fetchAllGuitars} from '../reducers/guitars'
 import BrandList from './BrandList';
 import store from '../store';
-import {fetchAllGuitars} from '../reducers/guitars'
 import {fetchAllBrands} from '../reducers/brands';
 
 export default class Main extends Component {
@@ -20,7 +18,7 @@ export default class Main extends Component {
     }
     render() {
 
-        
+
         return (
             <div>
                 <Sidebar />
