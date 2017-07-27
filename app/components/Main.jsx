@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import {fetchAllGuitars} from '../reducers/guitars'
 import BrandList from './BrandList';
+import GuitarList from './Guitar/GuitarList'
 import store from '../store';
 import {fetchAllBrands} from '../reducers/brands';
 
@@ -26,6 +27,7 @@ export default class Main extends Component {
                 <div>
                     <Switch>
                         <Route exact path='/brands' component={BrandList} />
+                        <Route exact path='/guitars' component={GuitarList} />
                     </Switch>
                 </div>
             </div>

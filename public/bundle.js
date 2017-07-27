@@ -15301,11 +15301,21 @@ var _Navbar = __webpack_require__(321);
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
+var _guitars = __webpack_require__(142);
+
+var _BrandList = __webpack_require__(517);
+
+var _BrandList2 = _interopRequireDefault(_BrandList);
+
+var _GuitarList = __webpack_require__(519);
+
+var _GuitarList2 = _interopRequireDefault(_GuitarList);
+
 var _store = __webpack_require__(217);
 
 var _store2 = _interopRequireDefault(_store);
 
-var _guitars = __webpack_require__(142);
+var _brands = __webpack_require__(515);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15314,16 +15324,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// import StudentList from './StudentList';
-// import CampusList from './CampusList';
-// import NewCampus from './NewCampus';
-// import NewStudent from './NewStudent';
-// import SingleCampus from './SingleCampus';
-// import SingleStudent from './SingleStudent';
-// import ChangeStudent from './ChangeStudent';
-// import ChangeCampus from './ChangeCampus';
-// import HomePage from './HomePage'
 
 var Main = function (_Component) {
     _inherits(Main, _Component);
@@ -15339,6 +15339,9 @@ var Main = function (_Component) {
         value: function componentDidMount() {
             var guitarsThunk = (0, _guitars.fetchAllGuitars)();
             _store2.default.dispatch(guitarsThunk);
+
+            var brandsThunk = (0, _brands.fetchAllBrands)();
+            _store2.default.dispatch(brandsThunk);
         }
     }, {
         key: 'render',
@@ -15352,7 +15355,12 @@ var Main = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement(_reactRouterDom.Switch, null)
+                    _react2.default.createElement(
+                        _reactRouterDom.Switch,
+                        null,
+                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/brands', component: _BrandList2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/guitars', component: _GuitarList2.default })
+                    )
                 )
             );
         }
@@ -19809,6 +19817,7 @@ var _redux = __webpack_require__(89);
 
 var rootReducer = (0, _redux.combineReducers)({
   auth: __webpack_require__(72).default,
+  brands: __webpack_require__(515).default,
   guitars: __webpack_require__(142).default
 });
 
@@ -40042,6 +40051,541 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 515 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchAllBrands = exports.getAllBrands = undefined;
+
+var _axios = __webpack_require__(91);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var GET_ALL_BRANDS = 'GET_ALL_BRANDS';
+
+var getAllBrands = exports.getAllBrands = function getAllBrands(brands) {
+  return {
+    type: GET_ALL_BRANDS,
+    brands: brands
+  };
+};
+
+exports.default = function () {
+  var brands = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  switch (action.type) {
+
+    case GET_ALL_BRANDS:
+      return action.brands;
+
+    default:
+      return brands;
+  }
+};
+
+var fetchAllBrands = exports.fetchAllBrands = function fetchAllBrands(dispatch) {
+  return _axios2.default.get('/api/brands').then(function (res) {
+    return res.data;
+  }).then(function (brands) {
+    dispatch(getAllBrands(brands));
+  });
+};
+
+/***/ }),
+/* 516 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function (_ref) {
+  var brand = _ref.brand;
+
+  return React.createElement(
+    "div",
+    { className: "list-group-item min-content user-item" },
+    React.createElement(
+      "div",
+      { className: "media" },
+      React.createElement("div", { className: "media-left media-middle icon-container" }),
+      React.createElement(
+        NavLink,
+        {
+          className: "media-body",
+          activeClassName: "active",
+          to: "/brands/" + brand.id },
+        React.createElement(
+          "h4",
+          { className: "media-heading tucked" },
+          React.createElement(
+            "span",
+            { placeholder: "Brand..." },
+            brand.name
+          )
+        ),
+        React.createElement(
+          "h5",
+          { className: "tucked" },
+          React.createElement(
+            "span",
+            null,
+            brand.email
+          )
+        ),
+        React.createElement(
+          "h5",
+          { className: "tucked" },
+          React.createElement(
+            "span",
+            null,
+            brand.phone
+          )
+        ),
+        React.createElement(
+          "h5",
+          { className: "tucked" },
+          React.createElement(
+            "span",
+            null,
+            brand.address
+          )
+        ),
+        React.createElement(
+          "h5",
+          { className: "tucked" },
+          React.createElement(
+            "span",
+            null,
+            brand.city,
+            ", ",
+            brand.state
+          )
+        ),
+        React.createElement(
+          "p",
+          { className: "tucked" },
+          React.createElement(
+            "span",
+            null,
+            brand.description
+          )
+        )
+      )
+    )
+  );
+};
+
+/***/ }),
+/* 517 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(56);
+
+var _reactRedux = __webpack_require__(71);
+
+var _BrandItem = __webpack_require__(516);
+
+var _BrandItem2 = _interopRequireDefault(_BrandItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AllBrands = function (_Component) {
+  _inherits(AllBrands, _Component);
+
+  function AllBrands(props) {
+    _classCallCheck(this, AllBrands);
+
+    return _possibleConstructorReturn(this, (AllBrands.__proto__ || Object.getPrototypeOf(AllBrands)).call(this, props));
+  }
+
+  _createClass(AllBrands, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'div',
+          { className: 'brand-list' },
+          this.props.brands.map(function (brand) {
+            return _react2.default.createElement(_BrandItem2.default, { brand: brand });
+          })
+        )
+      );
+    }
+  }]);
+
+  return AllBrands;
+}(_react.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    brands: state.brands
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  // put in methods and such
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AllBrands);
+
+/***/ }),
+/* 518 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(56);
+
+var _reactRedux = __webpack_require__(71);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import { removeUser } from '../../redux/users';
+// import { removeStory } from '../../redux/stories';
+
+/* -----------------    COMPONENT     ------------------ */
+
+var GuitarItem = function (_React$Component) {
+  _inherits(GuitarItem, _React$Component);
+
+  function GuitarItem(props) {
+    _classCallCheck(this, GuitarItem);
+
+    return _possibleConstructorReturn(this, (GuitarItem.__proto__ || Object.getPrototypeOf(GuitarItem)).call(this, props));
+    // this.removeUserCallback = this.removeUserCallback.bind(this);
+  }
+
+  _createClass(GuitarItem, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          guitar = _props.guitar,
+          brands = _props.brands;
+
+      console.log(brands);
+      return _react2.default.createElement(
+        'div',
+        { className: 'list-group-item min-content user-item' },
+        _react2.default.createElement(
+          'div',
+          { className: 'media' },
+          _react2.default.createElement(
+            'div',
+            { className: 'media-left media-middle icon-container' },
+            _react2.default.createElement('img', { className: 'media-object img-circle', src: guitar.photo })
+          ),
+          _react2.default.createElement(
+            _reactRouterDom.NavLink,
+            {
+              className: 'media-body',
+              activeClassName: 'active',
+              to: '/guitars/' + guitar.id },
+            _react2.default.createElement(
+              'h4',
+              { className: 'media-heading tucked' },
+              _react2.default.createElement(
+                'span',
+                { placeholder: 'Jean Doe' },
+                guitar.model
+              )
+            ),
+            _react2.default.createElement(
+              'h5',
+              { className: 'tucked' },
+              _react2.default.createElement(
+                'span',
+                null,
+                brands[0] && brands[+guitar.brand_id + 1].name
+              )
+            ),
+            _react2.default.createElement(
+              'h5',
+              { className: 'tucked' },
+              _react2.default.createElement(
+                'span',
+                null,
+                guitar.category
+              )
+            )
+          )
+        )
+      );
+    }
+
+    // removeUserCallback (event) {
+    //   const { removeUser, removeStory, user, stories } = this.props;
+    //   event.stopPropagation();
+    //   removeUser(user.id);
+    // }
+
+  }]);
+
+  return GuitarItem;
+}(_react2.default.Component);
+
+/* -----------------    CONTAINER     ------------------ */
+
+var mapState = function mapState(_ref) {
+  var brands = _ref.brands;
+  return { brands: brands };
+};
+
+// const mapDispatch = { removeUser, removeStory };
+
+exports.default = (0, _reactRedux.connect)(mapState)(GuitarItem);
+
+/***/ }),
+/* 519 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(56);
+
+var _reactRedux = __webpack_require__(71);
+
+var _GuitarItem = __webpack_require__(518);
+
+var _GuitarItem2 = _interopRequireDefault(_GuitarItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import { addUser } from '../../redux/users';
+
+
+/* -----------------    COMPONENT     ------------------ */
+
+var GuitarList = function (_Component) {
+  _inherits(GuitarList, _Component);
+
+  function GuitarList(props) {
+    _classCallCheck(this, GuitarList);
+
+    var _this = _possibleConstructorReturn(this, (GuitarList.__proto__ || Object.getPrototypeOf(GuitarList)).call(this, props));
+
+    _this.state = {
+      model: ''
+      //   brand: '',
+      //   category: ''
+    };
+
+    _this.filterGuitar = _this.filterGuitar.bind(_this);
+    _this.renderGuitarSearch = _this.renderGuitarSearch.bind(_this);
+    // this.renderNewGuitarWidget = this.renderNewGuitarWidget.bind(this);
+    // this.submit = this.submit.bind(this);
+    return _this;
+  }
+
+  _createClass(GuitarList, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(
+          'div',
+          { className: 'user-query' },
+          this.renderGuitarSearch()
+        ),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'div',
+          { className: 'user-list' },
+          this.props.guitars.filter(this.filterGuitar).map(function (guitar) {
+            return _react2.default.createElement(_GuitarItem2.default, { guitar: guitar, key: guitar.id });
+          })
+        )
+      );
+    }
+  }, {
+    key: 'renderGuitarSearch',
+    value: function renderGuitarSearch() {
+      var _this2 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'list-group-item min-content user-item' },
+        _react2.default.createElement(
+          'div',
+          { className: 'media' },
+          _react2.default.createElement(
+            'div',
+            { className: 'media-left media-middle icon-container' },
+            _react2.default.createElement('span', { className: 'glyphicon glyphicon-search' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'media-body' },
+            _react2.default.createElement(
+              'h4',
+              { className: 'media-heading tucked' },
+              _react2.default.createElement('input', {
+                type: 'text',
+                placeholder: 'Enter the Model Name',
+                className: 'form-like',
+                onChange: function onChange(evt) {
+                  return _this2.setState({ name: evt.target.value });
+                }
+              })
+            )
+          )
+        )
+      );
+    }
+  }, {
+    key: 'filterGuitar',
+    value: function filterGuitar(guitar) {
+      var nameMatch = new RegExp(this.state.name, 'i');
+      // const emailMatch = new RegExp(this.state.email, 'i');
+      // const phoneMatch = new RegExp(this.state.phone, 'i');
+
+      return nameMatch.test(guitar.model);
+      // && emailMatch.test(story.email)
+      // && phoneMatch.test(story.phone);
+    }
+
+    /*renderNewUserWidget() {
+      return (
+        <div className="list-group-item min-content user-item">
+          <form className="media" onSubmit={this.submit}>
+            <div className="media-left media-middle icon-container">
+              <button
+                type="submit"
+                className="glyphicon glyphicon-plus clickable"
+              />
+            </div>
+            <div className="media-body">
+              <h4 className="media-heading tucked">
+                <input
+                  name="name"
+                  type="text"
+                  required
+                  placeholder="Jean Doe"
+                  className="form-like"
+                />
+              </h4>
+              <h5 className="tucked">
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="email@website.com"
+                  className="form-like"
+                />
+              </h5>
+              <h5 className="tucked">
+                <input
+                  name="phone"
+                  type="tel"
+                  placeholder="(555) 555-5555"
+                  className="form-like"
+                />
+              </h5>
+            </div>
+          </form>
+        </div>
+      );
+    }*/
+
+    //   submit(event) {
+    //     event.preventDefault();
+    //     const user = {
+    //       name: event.target.name.value,
+    //       email: event.target.email.value,
+    //       phone: event.target.phone.value,
+    //     };
+    //     this.props.addUser(user);
+    //     // clear the inputs
+    //     event.target.name.value = '';
+    //     event.target.email.value = '';
+    //     event.target.phone.value = '';
+    //   }
+
+  }]);
+
+  return GuitarList;
+}(_react.Component);
+
+/* -----------------    CONTAINER     ------------------ */
+
+var mapState = function mapState(_ref) {
+  var guitars = _ref.guitars,
+      brands = _ref.brands;
+  return { guitars: guitars, brands: brands };
+};
+
+// const mapDispatch = { addUser };
+
+exports.default = (0, _reactRedux.connect)(mapState)(GuitarList);
 
 /***/ })
 /******/ ]);

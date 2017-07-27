@@ -6,7 +6,7 @@ body {
   background-color: white;
 }
 
-/*a, span, h1, h2, h3, h4, h5, h6, div {
+a, span, h1, h2, h3, h4, h5, h6, div {
   font-family: 'Verdana'; }
 
 select {
@@ -76,7 +76,7 @@ select {
   padding-right: 4px; }
 
 .transparent {
-  opacity: 0; }*/
+  opacity: 0; }
 
 .navbar {
   border: none;
@@ -110,7 +110,7 @@ select {
     border-top: 0.8em solid transparent;
     border-right: none; } }
 
-/*html {
+html {
   position: relative;
   min-height: 100%; }
 
@@ -307,7 +307,7 @@ input.form-like[disabled] {
   border-radius: 10px;
   border: 1px dotted #777; }
   .story-container p {
-    margin: 20px 0; }*/
+    margin: 20px 0; }
 
 sidebar {
   position: fixed;
