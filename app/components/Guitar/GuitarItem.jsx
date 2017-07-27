@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { removeUser } from '../../redux/users';
-import { removeStory } from '../../redux/stories';
+// import { removeUser } from '../../redux/users';
+// import { removeStory } from '../../redux/stories';
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -14,7 +14,8 @@ class GuitarItem extends React.Component {
   }
 
   render () {
-    const { guitar } = this.props;
+    const { guitar, brands } = this.props;
+    console.log(brands)
     return (
       <div className="list-group-item min-content user-item">
         <div className="media">
@@ -29,7 +30,8 @@ class GuitarItem extends React.Component {
               <span placeholder="Jean Doe">{guitar.model}</span>
             </h4>
             <h5 className="tucked">
-              <span>{guitar.brand}</span>
+              
+              <span>{brands[0] && brands[+guitar.brand_id + 1].name}</span>
             </h5>
             <h5 className="tucked">
               <span>{guitar.category}</span>
@@ -47,17 +49,17 @@ class GuitarItem extends React.Component {
     );
   }
 
-  removeUserCallback (event) {
-    const { removeUser, removeStory, user, stories } = this.props;
-    event.stopPropagation();
-    removeUser(user.id);
-  }
+  // removeUserCallback (event) {
+  //   const { removeUser, removeStory, user, stories } = this.props;
+  //   event.stopPropagation();
+  //   removeUser(user.id);
+  // }
 }
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapState = ({ stories }) => ({ stories });
+const mapState = ({ brands }) => ({ brands });
 
-const mapDispatch = { removeUser, removeStory };
+// const mapDispatch = { removeUser, removeStory };
 
-export default connect(mapState, mapDispatch)(GuitarItem);
+export default connect(mapState)(GuitarItem);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addUser } from '../../redux/users';
+// import { addUser } from '../../redux/users';
 import GuitarItem from './GuitarItem';
 
 /* -----------------    COMPONENT     ------------------ */
@@ -80,12 +80,12 @@ class GuitarList extends Component {
     );
   }
 
-  filterGuitar(story) {
+  filterGuitar(guitar) {
     const nameMatch  = new RegExp(this.state.name, 'i');
-    const emailMatch = new RegExp(this.state.email, 'i');
-    const phoneMatch = new RegExp(this.state.phone, 'i');
+    // const emailMatch = new RegExp(this.state.email, 'i');
+    // const phoneMatch = new RegExp(this.state.phone, 'i');
 
-    return nameMatch.test(story.name)
+    return nameMatch.test(guitar.model)
         // && emailMatch.test(story.email)
         // && phoneMatch.test(story.phone);
   }
@@ -151,9 +151,9 @@ class GuitarList extends Component {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapState = ({ guitars }) => ({ guitars });
+const mapState = ({ guitars, brands }) => ({ guitars, brands });
 
 // const mapDispatch = { addUser };
 
-export default connect(mapState, mapDispatch)(GuitarList);
+export default connect(mapState)(GuitarList);
 
