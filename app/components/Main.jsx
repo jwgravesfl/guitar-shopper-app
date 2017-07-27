@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
+import store from '../store';
+import {fetchAllGuitars} from '../reducers/guitars'
 import BrandList from './BrandList';
 import store from '../store';
 import {fetchAllGuitars} from '../reducers/guitars'
@@ -16,10 +18,9 @@ export default class Main extends Component {
         const brandsThunk = fetchAllBrands();
         store.dispatch(brandsThunk);
     }
-
-
-export default class Main extends Component {
     render() {
+
+        
         return (
             <div>
                 <Sidebar />
