@@ -31,7 +31,7 @@ class GuitarItem extends React.Component {
             </h4>
             <h5 className="tucked">
               
-              <span>{brands[0] && brands[+guitar.brand_id + 1].name}</span>
+              <span>BRAND BRO: {brands[0] && brands[+guitar.brand_id - 1].name}</span>
             </h5>
             <h5 className="tucked">
               <span>{guitar.category}</span>
@@ -62,4 +62,4 @@ const mapState = ({ brands }) => ({ brands });
 
 // const mapDispatch = { removeUser, removeStory };
 
-export default connect(mapState)(GuitarItem);
+export default connect(mapState, null)(GuitarItem);

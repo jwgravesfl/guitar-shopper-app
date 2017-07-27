@@ -19372,7 +19372,7 @@ exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapPr
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19398,160 +19398,124 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Sidebar = function (_Component) {
-    _inherits(Sidebar, _Component);
+  _inherits(Sidebar, _Component);
 
-    function Sidebar(props) {
-        _classCallCheck(this, Sidebar);
+  function Sidebar(props) {
+    _classCallCheck(this, Sidebar);
 
-        return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).call(this, props));
+    return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).call(this, props));
+  }
+
+  _createClass(Sidebar, [{
+    key: 'render',
+    value: function render() {
+
+      return _react2.default.createElement(
+        'sidebar',
+        null,
+        _react2.default.createElement('img', { src: 'Rock-Guitar-icon.png', className: 'logo' }),
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Search By Brand (these are guitars bro):'
+        ),
+        _react2.default.createElement('ul', { className: 'sidebarUl' }),
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Search By Types:'
+        ),
+        _react2.default.createElement(
+          'ul',
+          { className: 'sidebarUl' },
+          _react2.default.createElement(
+            'li',
+            null,
+            'Electric ',
+            _react2.default.createElement(
+              'span',
+              null,
+              _react2.default.createElement('input', { type: 'checkbox' })
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            'Acoustic ',
+            _react2.default.createElement(
+              'span',
+              null,
+              _react2.default.createElement('input', { type: 'checkbox' })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Search By Prices:'
+        ),
+        _react2.default.createElement(
+          'ul',
+          { className: 'sidebarUl' },
+          _react2.default.createElement(
+            'li',
+            null,
+            '$100 - $200 ',
+            _react2.default.createElement(
+              'span',
+              null,
+              _react2.default.createElement('input', { type: 'checkbox' })
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            '$201 - $300 ',
+            _react2.default.createElement(
+              'span',
+              null,
+              _react2.default.createElement('input', { type: 'checkbox' })
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            '$301 - $400 ',
+            _react2.default.createElement(
+              'span',
+              null,
+              _react2.default.createElement('input', { type: 'checkbox' })
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            '$400 - $500 ',
+            _react2.default.createElement(
+              'span',
+              null,
+              _react2.default.createElement('input', { type: 'checkbox' })
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            '$501+ ',
+            _react2.default.createElement(
+              'span',
+              null,
+              _react2.default.createElement('input', { type: 'checkbox' })
+            )
+          )
+        )
+      );
     }
+  }]);
 
-    _createClass(Sidebar, [{
-        key: 'render',
-        value: function render() {
-
-            var sampleBrands = ['Martin', 'Fender', 'Taylor', 'Gibson'];
-            var samplePrices = ['100-200', '200-400', '500-900', '1000+'];
-
-            var guitars = this.props.guitars;
-
-
-            return _react2.default.createElement(
-                'sidebar',
-                null,
-                _react2.default.createElement('img', { src: 'Rock-Guitar-icon.png', className: 'logo' }),
-                _react2.default.createElement(
-                    'h3',
-                    null,
-                    'Search By Brand (these are guitars bro):'
-                ),
-                _react2.default.createElement(
-                    'ul',
-                    { className: 'sidebarUl' },
-                    guitars.map(function (guitar) {
-                        return _react2.default.createElement(
-                            'li',
-                            null,
-                            guitar.model,
-                            ' ',
-                            _react2.default.createElement(
-                                'span',
-                                null,
-                                _react2.default.createElement('input', { type: 'checkbox' })
-                            )
-                        );
-                    })
-                ),
-                _react2.default.createElement(
-                    'h3',
-                    null,
-                    'Search By Types:'
-                ),
-                _react2.default.createElement(
-                    'ul',
-                    { className: 'sidebarUl' },
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Electric ',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            _react2.default.createElement('input', { type: 'checkbox' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        'Acoustic ',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            _react2.default.createElement('input', { type: 'checkbox' })
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'h3',
-                    null,
-                    'Search By Prices:'
-                ),
-                _react2.default.createElement(
-                    'ul',
-                    { className: 'sidebarUl' },
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        '$100 - $200 ',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            _react2.default.createElement('input', { type: 'checkbox' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        '$201 - $300 ',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            _react2.default.createElement('input', { type: 'checkbox' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        '$301 - $400 ',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            _react2.default.createElement('input', { type: 'checkbox' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        '$400 - $500 ',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            _react2.default.createElement('input', { type: 'checkbox' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'li',
-                        null,
-                        '$501+ ',
-                        _react2.default.createElement(
-                            'span',
-                            null,
-                            _react2.default.createElement('input', { type: 'checkbox' })
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Sidebar;
+  return Sidebar;
 }(_react.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        guitars: state.guitars
-    };
-};
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     filterGuitars(filterTermsObj) {
-//       dispatch(filterGuitars(filterTermsObj));
-//     }
-//   }
-// }
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(Sidebar);
+exports.default = (0, _reactRedux.connect)()(Sidebar);
 
 /***/ }),
 /* 323 */
@@ -40093,12 +40057,14 @@ exports.default = function () {
   }
 };
 
-var fetchAllBrands = exports.fetchAllBrands = function fetchAllBrands(dispatch) {
-  return _axios2.default.get('/api/brands').then(function (res) {
-    return res.data;
-  }).then(function (brands) {
-    dispatch(getAllBrands(brands));
-  });
+var fetchAllBrands = exports.fetchAllBrands = function fetchAllBrands() {
+  return function (dispatch) {
+    return _axios2.default.get('/api/brands').then(function (res) {
+      return res.data;
+    }).then(function (brands) {
+      dispatch(getAllBrands(brands));
+    });
+  };
 };
 
 /***/ }),
@@ -40112,74 +40078,82 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(56);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 exports.default = function (_ref) {
   var brand = _ref.brand;
 
-  return React.createElement(
-    "div",
-    { className: "list-group-item min-content user-item" },
-    React.createElement(
-      "div",
-      { className: "media" },
-      React.createElement("div", { className: "media-left media-middle icon-container" }),
-      React.createElement(
-        NavLink,
+  return _react2.default.createElement(
+    'div',
+    { className: 'list-group-item min-content user-item' },
+    _react2.default.createElement(
+      'div',
+      { className: 'media' },
+      _react2.default.createElement('div', { className: 'media-left media-middle icon-container' }),
+      _react2.default.createElement(
+        _reactRouterDom.NavLink,
         {
-          className: "media-body",
-          activeClassName: "active",
-          to: "/brands/" + brand.id },
-        React.createElement(
-          "h4",
-          { className: "media-heading tucked" },
-          React.createElement(
-            "span",
-            { placeholder: "Brand..." },
+          className: 'media-body',
+          activeClassName: 'active',
+          to: '/brands/' + brand.id },
+        _react2.default.createElement(
+          'h4',
+          { className: 'media-heading tucked' },
+          _react2.default.createElement(
+            'span',
+            { placeholder: 'Brand...' },
             brand.name
           )
         ),
-        React.createElement(
-          "h5",
-          { className: "tucked" },
-          React.createElement(
-            "span",
+        _react2.default.createElement(
+          'h5',
+          { className: 'tucked' },
+          _react2.default.createElement(
+            'span',
             null,
             brand.email
           )
         ),
-        React.createElement(
-          "h5",
-          { className: "tucked" },
-          React.createElement(
-            "span",
+        _react2.default.createElement(
+          'h5',
+          { className: 'tucked' },
+          _react2.default.createElement(
+            'span',
             null,
             brand.phone
           )
         ),
-        React.createElement(
-          "h5",
-          { className: "tucked" },
-          React.createElement(
-            "span",
+        _react2.default.createElement(
+          'h5',
+          { className: 'tucked' },
+          _react2.default.createElement(
+            'span',
             null,
             brand.address
           )
         ),
-        React.createElement(
-          "h5",
-          { className: "tucked" },
-          React.createElement(
-            "span",
+        _react2.default.createElement(
+          'h5',
+          { className: 'tucked' },
+          _react2.default.createElement(
+            'span',
             null,
             brand.city,
-            ", ",
+            ', ',
             brand.state
           )
         ),
-        React.createElement(
-          "p",
-          { className: "tucked" },
-          React.createElement(
-            "span",
+        _react2.default.createElement(
+          'p',
+          { className: 'tucked' },
+          _react2.default.createElement(
+            'span',
             null,
             brand.description
           )
@@ -40347,7 +40321,8 @@ var GuitarItem = function (_React$Component) {
               _react2.default.createElement(
                 'span',
                 null,
-                brands[0] && brands[+guitar.brand_id + 1].name
+                'BRAND BRO: ',
+                brands[0] && brands[+guitar.brand_id - 1].name
               )
             ),
             _react2.default.createElement(
@@ -40384,7 +40359,7 @@ var mapState = function mapState(_ref) {
 
 // const mapDispatch = { removeUser, removeStory };
 
-exports.default = (0, _reactRedux.connect)(mapState)(GuitarItem);
+exports.default = (0, _reactRedux.connect)(mapState, null)(GuitarItem);
 
 /***/ }),
 /* 519 */
