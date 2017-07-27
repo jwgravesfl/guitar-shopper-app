@@ -9,7 +9,6 @@ import {fetchAllBrands} from '../reducers/brands';
 
 export default class Main extends Component {
 
-
     componentDidMount() {
         const guitarsThunk = fetchAllGuitars();
         store.dispatch(guitarsThunk);
