@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {connect} from 'react-redux'
 
 class Sidebar extends Component {
 
@@ -23,7 +24,7 @@ class Sidebar extends Component {
             {
                 guitars.map(guitar => {
                     return (
-                        <li>{guitar} <span><input type="checkbox" /></span></li>
+                        <li>{guitar.model} <span><input type="checkbox" /></span></li>
                     )
                 })
             }

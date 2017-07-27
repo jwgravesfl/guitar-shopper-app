@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
+import store from '../store';
+import {fetchAllGuitars} from '../reducers/guitars'
+
 // import StudentList from './StudentList';
 // import CampusList from './CampusList';
 // import NewCampus from './NewCampus';
@@ -13,7 +16,14 @@ import Navbar from './Navbar';
 // import HomePage from './HomePage'
 
 export default class Main extends Component {
+    componentDidMount() {
+        const guitarsThunk = fetchAllGuitars();
+        store.dispatch(guitarsThunk);
+    }
+    
     render() {
+
+        
         return (
             <div>
                 <Sidebar />

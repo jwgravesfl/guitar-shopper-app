@@ -33,18 +33,18 @@ export default (guitars = [], action) => {
 
 
 // Thunk Creator
-export const fetchAllGuitars = () => {
+export const fetchAllGuitars = () => dispatch => {
   return axios.get('/api/guitars')
   .then(res => res.data)
-  .then(guitars => getAllGuitars(guitars));
+  .then(guitars => dispatch(getAllGuitars(guitars)));
 }
 
 export const postGuitar = guitar => dispatch => {
   return axios.post('/api/guitars', guitar)
           .then(res => res.data)
           .then(newGuitar => {
-            const action = getOneGuitar(newGuitar);
-            dispatch(action);
+            dispatch(getOneGuitar(newGuitar));
+            // dispatch(action);
           })
 }
 
