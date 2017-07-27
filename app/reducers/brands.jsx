@@ -20,7 +20,7 @@ export default (brands = [], action) => {
   }
 }
 
-export const fetchAllBrands = (dispatch) => {
+export const fetchAllBrands = () => (dispatch) => {
   return axios.get('/api/brands')
   .then(res => res.data)
   .then(brands => {
