@@ -254,6 +254,7 @@ input.form-like[disabled] {
   background-color: transparent;
   border: none;
   word-wrap: normal; }
+/*lk*/
 
 .user-item * {
   white-space: nowrap; }
