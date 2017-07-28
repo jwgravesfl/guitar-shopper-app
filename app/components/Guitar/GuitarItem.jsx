@@ -11,10 +11,10 @@ class GuitarItem extends React.Component {
   render () {
     const { guitar, brands } = this.props;
     return (
-      <div className="list-group-item min-content user-item">
+      <div className="list-group-item min-content user-item guitar-item">
         <div className="media">
           <div className="media-left media-middle icon-container">
-            <img className="media-object img-circle" src={guitar.photo} />
+            <img className="media-object img-circle" src={guitar.imageURL} />
           </div>
           <NavLink
             className="media-body"
@@ -24,10 +24,10 @@ class GuitarItem extends React.Component {
               <span placeholder="Jean Doe">{guitar.model}</span>
             </h4>
             <h5 className="tucked">
-              <span>BRAND BRO: {brands[0] && brands[+guitar.brand_id - 1].name}</span>
+              <span>BRAND: {brands[0] && brands[+guitar.brand_id - 1].name}</span>
             </h5>
             <h5 className="tucked">
-              <span>{guitar.category}</span>
+              <span>TYPE: {guitar.category}</span>
             </h5>
           </NavLink>
           {/*<div className="media-right media-middle">
