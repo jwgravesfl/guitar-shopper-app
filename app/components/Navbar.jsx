@@ -12,7 +12,9 @@ class Navbar extends React.Component {
     this.renderLogout = this.renderLogout.bind(this);
   }
 
+
   render() {
+    const { auth } = this.props;
     return (
       <nav className="navbar navbar-default">
         <div className="container">
@@ -37,24 +39,25 @@ class Navbar extends React.Component {
                 <NavLink to="/brands" activeClassName="active">ALL BRANDS</NavLink>
               </li>
             </ul>
-            { this.renderLogout() }
-            { this.renderLoginSignup() }
+            {this.renderLogout()}
+            {this.renderLoginSignup(auth)}
           </div>
         </div>
       </nav>
     );
   }
 
-  renderLoginSignup() {
+  renderLoginSignup(auth) {
     return (
-      <ul className="nav navbar-nav navbar-right">
-        <li>
-         <NavLink to="/signup" activeClassName="active">signup</NavLink>
+      auth ? (<ul className="nav navbar-nav navbar-right"> <h3 >
+        Welcome, {auth.name}!
+          </h3> </ul>) : (<ul className="nav navbar-nav navbar-right"> <li>
+          <NavLink to="/signup" activeClassName="active">signup</NavLink>
         </li>
-        <li>
-          <NavLink to="/login" activeClassName="active">login</NavLink>
-        </li>
-      </ul>
+          <li>
+            <NavLink to="/login" activeClassName="active">login</NavLink>
+          </li>
+        </ul>)
     );
   }
 
@@ -62,10 +65,10 @@ class Navbar extends React.Component {
     return (
       <ul className="nav navbar-nav navbar-right">
         <li>
-        <button
-          className="navbar-btn btn btn-default"
-          onClick={this.props.logout}>
-          logout (but like Why doe?)
+          <button
+            className="navbar-btn btn btn-default"
+            onClick={this.props.logout}>
+            logout
         </button>
         </li>
       </ul>
@@ -75,13 +78,10 @@ class Navbar extends React.Component {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapProps = null;
+import { logout } from 'APP/app/reducers/auth'
 
-const mapDispatch = dispatch => ({
-  logout: () => {
-    console.log('You signed out. Sorta.');
-    
-  }
-});
+const mapStateToProps = ({ auth }) => ({ auth });
 
-export default withRouter(connect(mapProps, mapDispatch)(Navbar));
+
+
+export default withRouter(connect(mapStateToProps, { logout })(Navbar));
