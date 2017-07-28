@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { addUser } from '../../redux/users';
+import Sidebar from '../Sidebar';
 import GuitarItem from './GuitarItem';
 
 /* -----------------    COMPONENT     ------------------ */
@@ -24,7 +24,9 @@ class GuitarList extends Component {
 
   render() {
     return (
+      
       <div className="container">
+        <Sidebar />
         <div className="user-query">
           { this.renderGuitarSearch() }
           {/*{ this.renderNewUserWidget() }*/}
