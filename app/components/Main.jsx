@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import Sidebar from './Sidebar';
+
 import Navbar from './Navbar';
-import {fetchAllGuitars} from '../reducers/guitars'
+import { fetchAllGuitars } from '../reducers/guitars'
 import BrandList from './BrandList';
 import GuitarList from './Guitar/GuitarList'
+import Login from './Login'
 import store from '../store';
-import {fetchAllBrands} from '../reducers/brands';
+import { fetchAllBrands } from '../reducers/brands';
 
 export default class Main extends Component {
 
@@ -22,14 +23,15 @@ export default class Main extends Component {
 
         return (
             <div>
-                <Sidebar />
                 <Navbar />
                 <div>
                     <Switch>
                         <Route exact path='/brands' component={BrandList} />
                         <Route exact path='/guitars' component={GuitarList} />
+                        <Route path='/login' component={Login} />
                     </Switch>
                 </div>
+
             </div>
         )
     }
