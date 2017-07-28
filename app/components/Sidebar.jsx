@@ -20,7 +20,7 @@ class Sidebar extends Component {
                 brands[0] && brands.map(brand => {
                     return <li key={brand.id}>{brand.name}<span><input type="checkbox" /></span></li>
                 })
-            };
+            }
         </ul>
         <h3>Search By Types:</h3>
         <ul className="sidebarUl">

@@ -259,6 +259,10 @@ input.form-like[disabled] {
 .user-item * {
   white-space: nowrap; }
 
+.guitar-item * {
+  width: 50vh;
+}
+
 .user-item .icon-container {
   position: relative; }
   .user-item .icon-container .glyphicon {
@@ -281,12 +285,14 @@ input.form-like[disabled] {
   cursor: pointer; }
 
 .user-list {
+  padding-left: 25vh;
   display: flex;
   flex-wrap: wrap; }
   .user-list > * {
     flex: 1; }
 
 .user-query {
+  padding-left: 25vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap; }
@@ -313,7 +319,7 @@ input.form-like[disabled] {
 sidebar {
   position: fixed;
   left: 0;
-  top: 75px;
+  top: 57px;
   padding: 10 !important;
   background: blueviolet;
   height: 100vh;
