@@ -8,14 +8,8 @@ import { connect } from 'react-redux';
 
 class GuitarItem extends React.Component {
 
-  constructor (props) {
-    super(props);
-    // this.removeUserCallback = this.removeUserCallback.bind(this);
-  }
-
   render () {
     const { guitar, brands } = this.props;
-    console.log(brands)
     return (
       <div className="list-group-item min-content user-item">
         <div className="media">
@@ -30,7 +24,6 @@ class GuitarItem extends React.Component {
               <span placeholder="Jean Doe">{guitar.model}</span>
             </h4>
             <h5 className="tucked">
-              
               <span>BRAND BRO: {brands[0] && brands[+guitar.brand_id - 1].name}</span>
             </h5>
             <h5 className="tucked">

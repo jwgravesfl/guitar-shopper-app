@@ -5,22 +5,22 @@ import { connect } from 'react-redux'
 
 class Sidebar extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   render() {
+
+    const { brands } = this.props;
+
+    console.log("WE IN THIS:", brands);
 
     return (
       <sidebar>
         <img src="Rock-Guitar-icon.png" className="logo" />
         <h3>Search By Brand (these are guitars bro):</h3>
         <ul className="sidebarUl">
-          {/*<li>Brand 1 <span><input type="checkbox" /></span></li>
-          <li>Brand 2 <span><input type="checkbox" /></span></li>
-          <li>Brand 3 <span><input type="checkbox" /></span></li>
-          <li>Brand 4 <span><input type="checkbox" /></span></li>
-          <li>Brand 5 <span><input type="checkbox" /></span></li>*/}
+            {
+                brands[0] && brands.map(brand => {
+                    return <li key={brand.id}>{brand.name}<span><input type="checkbox" /></span></li>
+                })
+            }
         </ul>
         <h3>Search By Types:</h3>
         <ul className="sidebarUl">
@@ -40,4 +40,6 @@ class Sidebar extends Component {
   }
 }
 
-export default connect()(Sidebar);
+const mapState = ({ brands }) => ({ brands });
+
+export default connect(mapState)(Sidebar);
