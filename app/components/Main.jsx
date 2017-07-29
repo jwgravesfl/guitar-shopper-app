@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Navbar from './Navbar';
-import { fetchAllGuitars } from '../reducers/guitars'
 import BrandList from './BrandList';
 import GuitarList from './Guitar/GuitarList'
 import Login from './Login'
 import store from '../store';
 import { fetchAllBrands } from '../reducers/brands';
+import { fetchAllGuitars } from '../reducers/guitars'
+import { fetchFilteredBrands } from '../reducers/filterByBrand'
 
 export default class Main extends Component {
 
@@ -17,6 +18,9 @@ export default class Main extends Component {
 
         const brandsThunk = fetchAllBrands();
         store.dispatch(brandsThunk);
+
+        const filteredBrandsThunk = fetchFilteredBrands();
+        store.dispatch(filteredBrandsThunk);
     }
     render() {
 
