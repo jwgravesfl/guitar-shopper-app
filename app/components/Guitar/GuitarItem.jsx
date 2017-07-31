@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 class GuitarItem extends React.Component {
 
-  render () {
+  render() {
     const { guitar, brands } = this.props;
     return (
       <div className="list-group-item min-content user-item guitar-item">
@@ -24,7 +24,7 @@ class GuitarItem extends React.Component {
               <span placeholder="Jean Doe" id="title" >{guitar.model}</span>
             </h4>
             <h5 className="tucked">
-              <span>BRAND: { guitar.brand && guitar.brand.name}</span>
+              <span>BRAND: {guitar.brand && guitar.brand.name}</span>
             </h5>
             <h5 className="tucked">
               <span>TYPE: {guitar.category}</span>
