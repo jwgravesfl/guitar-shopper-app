@@ -44,3 +44,14 @@ export const addToCart = (guitarId, userId, cartId) => dispatch => {
     })
 }
 
+export const removeFromCart = (guitarId, cartId, userId) => dispatch => {
+  return axios.delete(`/api/carts/${cartId}`, {data:{guitarId}})
+    .then(res => res.data)
+    .then (updatedCart => {
+      dispatch(getCurrent(userId))
+      console.log("AXIOS UPDATED CART:", updatedCart);
+    })
+}
+
+
+

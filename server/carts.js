@@ -51,23 +51,32 @@ module.exports = require('express').Router()
         })
 
         Promise.all([cartProm, guitarProm, cartGuitar])
-        .then((proms) => {
-            const cart = proms[0];
-            const guitar = proms[1];
-            const cgJoinTable = proms[2]
-            cart.addGuitar(guitar.id)
-            .then(something => {
-                console.log(something)
-                if (!something.length) {
-                    console.log('okajsdf');
-                    cgJoinTable.quantity++;
-                    cgJoinTable.save();
+            .then((proms) => {
+                const cart = proms[0];
+                const guitar = proms[1];
+                const cgJoinTable = proms[2]
+                cart.addGuitar(guitar.id)
+                    .then(something => {
+                        console.log(something)
+                        if (!something.length) {
+                            console.log('okajsdf');
+                            cgJoinTable.quantity++;
+                            cgJoinTable.save();
 
-                }
-            }); // addGuitar method is actually a find or create
+                        }
+                    }); // addGuitar method is actually a find or create
 
-            res.json(cart);
-        })
+                res.json(cart);
+            })
+    })
+
+
+    .delete('/:cartId', (req, res, next) => {
+        Cart.findById(req.params.cartId)
+            .then(cart => 
+            {console.log(req.body)
+            cart.removeGuitar(req.body.guitarId)})
+            .then(res.sendStatus(204))
     })
 
     // .delete('/:id',

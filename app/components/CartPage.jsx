@@ -18,7 +18,7 @@ class Cart extends Component {
     }
 
     render() {
-        const {cart} = this.props;
+        const {cart, auth} = this.props;
         return (
             <div className="row">
             <div className="col-lg-8 col-mg-8">
@@ -30,7 +30,12 @@ class Cart extends Component {
               <div className="user-list">
                   {
                       cart.guitars && cart.guitars
-                          .map(guitar => <GuitarItem guitar={guitar} key={guitar.id}/>)
+                          .map(guitar => <div key={guitar.id}>
+                              <GuitarItem guitar={guitar} key={guitar.id}/>
+                              <button className="navbar-btn btn btn-default"
+                                onClick={() => this.props.removeFromCart(guitar.id, cart.id, auth.id)}>
+                                Remove from Cart
+                            </button></div>)
                   }
               </div>
             </div>
@@ -40,15 +45,14 @@ class Cart extends Component {
             </div>
         );
     }
-
-
 }
 
 /* -----------------    CONTAINER     ------------------ */
 
+import { removeFromCart } from 'APP/app/reducers/cart'
 const mapState = ({cart, auth}) => ({cart, auth});
 
 // const mapDispatch = { addUser };
 
-export default connect(mapState, {getCurrent})(Cart);
+export default connect(mapState, {getCurrent, removeFromCart})(Cart);
 
