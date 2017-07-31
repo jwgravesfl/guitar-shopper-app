@@ -21,7 +21,7 @@ class GuitarItem extends React.Component {
             activeClassName="active"
             to={`/guitars/${guitar.id}`}>
             <h4 className="media-heading tucked">
-              <span placeholder="Jean Doe">{guitar.model}</span>
+              <span placeholder="Jean Doe" id="title" >{guitar.model}</span>
             </h4>
             <h5 className="tucked">
               <span>BRAND: {brands[0] && brands[+guitar.brand_id - 1].name}</span>
