@@ -5,6 +5,7 @@ import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
 import {whoami} from './reducers/auth'
+
 import {fetchAllGuitars} from './reducers/guitars'
 
 const store = createStore(
@@ -21,4 +22,5 @@ export default store
 
 // Set the auth info at start
 store.dispatch(whoami());
+
 
