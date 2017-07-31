@@ -85,10 +85,10 @@ class Navbar extends React.Component {
     return (
       <ul className="nav navbar-nav navbar-right">
         <li>
-          <NavLink to="/cart" className="navbar-brand" activeClassName="active"><button
+          <button
             onClick={() => {this.props.getCurrent(this.props.auth && this.props.auth.id)}}>
-            <img src="/img/28468-200.png"/>
-        </button></NavLink>
+            <NavLink to="/cart" className="navbar-brand" activeClassName="active"><img src="/img/28468-200.png"/></NavLink>
+        </button>
 
         </li>
       </ul>
