@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const reducer = (state=null, action) => {
+const reducer = (state="", action) => {
   switch (action.type) {
   case AUTHENTICATED:
     return action.user
