@@ -9,8 +9,8 @@ import SingleGuitar from './SingleGuitar1';
 import Login from './Login'
 import store from '../store';
 import { fetchAllBrands } from '../reducers/brands';
-import { fetchAllGuitars } from '../reducers/guitars';
-
+import { fetchAllGuitars } from '../reducers/guitars'
+import { fetchFilteredBrands } from '../reducers/filterByBrand'
 
 export default class Main extends Component {
 
@@ -21,7 +21,8 @@ export default class Main extends Component {
         const brandsThunk = fetchAllBrands();
         store.dispatch(brandsThunk);
 
-        
+        const filteredBrandsThunk = fetchFilteredBrands();
+        store.dispatch(filteredBrandsThunk);
     }
     render() {
 
