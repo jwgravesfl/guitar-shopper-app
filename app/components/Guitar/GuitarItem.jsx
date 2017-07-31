@@ -24,7 +24,7 @@ class GuitarItem extends React.Component {
               <span placeholder="Jean Doe" id="title" >{guitar.model}</span>
             </h4>
             <h5 className="tucked">
-              <span>BRAND: { guitar.brand && guitar.brand.name}</span>
+              <span>BRAND: {brands[0] && brands[+guitar.brand_id - 1].name}</span>
             </h5>
             <h5 className="tucked">
               <span>TYPE: {guitar.category}</span>
