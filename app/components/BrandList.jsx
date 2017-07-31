@@ -15,7 +15,7 @@ class AllBrands extends Component {
         <div className="brand-list">
           {
             this.props.brands
-              .map(brand => <BrandItem brand={brand} />)
+              .map(brand => <BrandItem key={brand.id} brand={brand} />)
           }
         </div>
       </div>
@@ -29,8 +29,4 @@ const mapStateToProps = (state) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  // put in methods and such
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AllBrands);
+export default connect(mapStateToProps)(AllBrands);

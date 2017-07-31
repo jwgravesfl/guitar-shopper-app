@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const Sequelize = require('sequelize')
+const Sequelize = require('sequelize');
 
 module.exports = db => db.define('brands', {
     name: {
@@ -11,7 +11,7 @@ module.exports = db => db.define('brands', {
     city: Sequelize.STRING,
     state: Sequelize.STRING,
     phone: Sequelize.STRING,
-    location: Sequelize.ARRAY(Sequelize.DOUBLE),
+    location: Sequelize.STRING,
     description: {
         type: Sequelize.TEXT
     },
@@ -19,7 +19,8 @@ module.exports = db => db.define('brands', {
         type: Sequelize.STRING,
         allowNull: false
     },
-})
+    img: Sequelize.STRING
+});
 
 
 // module.exports.associations = (Thing, {User, Favorite}) => {
@@ -28,4 +29,4 @@ module.exports = db => db.define('brands', {
 
 module.exports.associations = (Brand, {Guitar}) => {
     Brand.hasMany(Guitar)
-}
+};

@@ -58,7 +58,7 @@ const guitars = seed(Guitar, ({brands}) => ({
            category: 'Acoustic',
            orientation: 'right',
            description: 'A very solid Martin guitar',
-           imageURL: 'http://static.weloveshopping.com/shop/music-boulevard/481881.jpg',
+           imageURL: '/img/dreadnought.png',
            price: 599.99,
            brand_id: brands.Martin.id
        },
@@ -67,7 +67,7 @@ const guitars = seed(Guitar, ({brands}) => ({
            category: 'Acoustic',
            orientation: 'right',
            description: 'A very solid Taylor guitar',
-           imageURL: 'http://images.samash.com/sa/T21/T214CEDLX-P.fpx?cvt=jpg',
+           imageURL: 'https://images-na.ssl-images-amazon.com/images/I/71e%2BfwCyLvL._SY450_.jpg',
            price: 1199.99,
            brand_id: brands.Taylor.id
        },
@@ -76,9 +76,8 @@ const guitars = seed(Guitar, ({brands}) => ({
            category: 'Acoustic',
            orientation: 'right',
            description: 'A very solid Taylor guitar',
-           imageURL: 'https://www.taylorguitars.com/sites/default/files/styles/guitar' +
-           '_detail_horizontal/public/responsive-guitar-detail/Taylor-GSMini-K-FLTD-fr-' +
-           '2014.png?itok=x4VdlsAd',
+           imageURL: 'http://media.guitarcenter.com/is/image/MMGS7/GS-Mini-Koa-Left-Handed-Acoustic-Electric-' +
+           'Guitar-Natural/J22555000001000-00-500x500.jpg',
            price: 799.99,
            brand_id: brands.Taylor.id
        },
@@ -87,8 +86,8 @@ const guitars = seed(Guitar, ({brands}) => ({
            category: 'Electric',
            orientation: 'right',
            description: 'A very solid Gibson guitar',
-           imageURL: 'http://images.gibson.com/Products/Electric-Guitars/2017/USA/Les-Paul-Tribute/' +
-           'LPTR17FHNH1_MAIN_HERO_01.jpg',
+           imageURL: 'http://media.guitarcenter.com/is/image/MMGS7/2017-Les-Paul-Tribute-HP-Electric-' +
+           'Guitar-Faded-Honey-Burst/J46937000001000-00-500x500.jpg',
            price: 899.99,
            brand_id: brands.Gibson.id
        },
@@ -130,8 +129,8 @@ const guitars = seed(Guitar, ({brands}) => ({
            category: 'Acoustic',
            orientation: 'right',
            description: 'A very solid Ibanez guitar',
-           imageURL: 'https://www.bhphotovideo.com/images/images2500x2500/ibanez_aeg1812iidvs_aeg18_12_' +
-           'string_acoustic_1214827.jpg',
+           imageURL: 'http://media.guitarcenter.com/is/image/MMGS7/AEG1812II-AEG-12-String-Acoustic-Electric-' +
+           'Guitar-Dark-Violin-Sunburst/J28289000001000-00-500x500.jpg',
            price: 299.99,
            brand_id: brands.Ibanez.id
        },
@@ -154,12 +153,13 @@ const brands = seed(Brand, {
        address: '510 Sycamore Street',
        city: 'Nazareth',
        state: 'PA',
-       phone: '610-759-2837',
-       location: [],
+       phone: '(610) 759-2837',
+       location: "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJVz3IM4ppxIkRj4h1WbNEeOA&key=AIzaSyBS3PP0y6u7L1Zv88oHfgV1j862GRsVXPI",
        description: 'One of the world’s leading acoustic instrument makers, Martin guitars ' +
        'are hand-made by skilled craftsmen and women, who use a combination ' +
        'of new design and techniques, along with those introduced by the company founder.',
-       websiteURL: 'https://www.martinguitar.com/'
+       websiteURL: 'https://www.martinguitar.com/',
+       img: '/img/martin-guitars.jpg'
    },
    Taylor: {
        name: 'Taylor',
@@ -167,24 +167,26 @@ const brands = seed(Brand, {
        city: 'El Cajon',
        state: 'CA',
        phone: '(619) 258-1207',
-       location: [],
+       location: "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJjRAd4R1Y2YAR__aRQiBtmI4&key=AIzaSyBS3PP0y6u7L1Zv88oHfgV1j862GRsVXPI",
        description: 'Taylor Guitars was founded in 1974 by Bob Taylor and Kurt Listug, and has ' +
        'grown into the leading global builder of premium acoustic guitars. Renowned for blending modern, ' +
        'innovative manufacturing techniques with a master craftsman\'s attention to detail, Taylor acoustic ' +
        'guitars are widely considered among the best-sounding and easiest to play in the world.',
-       websiteURL: 'https://www.taylorguitars.com/'
+       websiteURL: 'https://www.taylorguitars.com/',
+       img: '/img/tg-logo-red-2x.jpg'
    },
    Gibson: {
        name: 'Gibson',
        address: 'Gibson USA',
-       city: 'Nashville',
-       state: 'TN',
+       city: 'Brooklyn',
+       state: 'NY',
        phone: '1-800-4GIBSON',
-       location: [],
+       location: "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJE6f0RthcwokRY_mujcgdXEM&key=AIzaSyBS3PP0y6u7L1Zv88oHfgV1j862GRsVXPI",
        description: 'The home of Gibson electric guitars today is "Gibson USA," built in 1974 in Nashville ' +
        'specifically for the production of Gibson\'s Les Paul guitars. Although the entire guitar ' +
        'industry went through a slump in the late \'70s, the spirit of innovation remained strong at Gibson.',
-       websiteURL: 'http://www.gibson.com/'
+       websiteURL: 'http://www.gibson.com/',
+       img: '/img/USA_WHITE.jpg'
    },
    Fender: {
        name: 'Fender',
@@ -192,23 +194,25 @@ const brands = seed(Brand, {
        city: 'Scottsdale',
        state: 'AZ',
        phone: '(480) 596-9690 ',
-       location: [],
+       location: "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJAY8V9NV1K4cROf8D3a8DL-U&key=AIzaSyBS3PP0y6u7L1Zv88oHfgV1j862GRsVXPI",
        description: 'With an illustrious history dating back to 1946, Fender has touched and transformed music ' +
        'worldwide and in nearly every genre: rock ‘n’ roll, country and western, jazz, rhythm and blues and many others. ',
-       websiteURL: 'www.fender.com'
+       websiteURL: 'http://www.fender.com',
+       img: '/img/fender-red-large.jpg'
    },
    Ibanez: {
        name: 'Ibanez',
-       address: 'not swag',
+       address: 'Only Swag',
        city: 'Nagoya, Aichi',
        state: 'Japan',
-       phone: 'still swag',
-       location: [],
+       phone: '(201) 572-1988',
+       location: "https://www.google.com/maps/embed/v1/place?q=place_id:ChIJZSN7EJ5wA2ARUrPO6NQilio&key=AIzaSyBS3PP0y6u7L1Zv88oHfgV1j862GRsVXPI",
        description: 'Ibanez (アイバニーズ Aibanīzu) is a Japanese guitar brand owned by Hoshino Gakki. ' +
        'Based in Nagoya, Aichi, Japan, Hoshino Gakki were one of the first Japanese musical instrument companies to ' +
        'gain a significant foothold in import guitar sales in the United States and Europe, as well as the first brand of ' +
        'guitars to mass-produce the seven-string guitar and eight-string guitar.',
-       websiteURL: 'www.ibanez.com'
+       websiteURL: 'http://www.ibanez.com',
+       img: '/img/Ibanez_Logo.jpg'
    },
 });
 
