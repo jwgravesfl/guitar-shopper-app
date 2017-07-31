@@ -10,11 +10,15 @@ class Navbar extends React.Component {
     super(props);
     this.renderLoginSignup = this.renderLoginSignup.bind(this);
     this.renderLogout = this.renderLogout.bind(this);
+    this.renderCart = this.renderCart.bind(this);
   }
 
 
   render() {
     const { auth } = this.props;
+    if (auth) {
+      this.props.getCurrent(auth.id);
+    }
     return (
       <nav className="navbar navbar-default">
         <div className="container">
@@ -39,8 +43,10 @@ class Navbar extends React.Component {
                 <NavLink to="/brands" activeClassName="active">ALL BRANDS</NavLink>
               </li>
             </ul>
-            {this.renderLogout()}
+            {auth ? (this.renderCart()) : (<div></div>)}
+            {auth ? (this.renderLogout()) : (<div></div>)}
             {this.renderLoginSignup(auth)}
+          
           </div>
         </div>
       </nav>
@@ -74,14 +80,30 @@ class Navbar extends React.Component {
       </ul>
     );
   }
+
+  renderCart() {
+    return (
+      <ul className="nav navbar-nav navbar-right">
+        <li>
+          <button
+            onClick={() => {this.props.getCurrent(this.props.auth && this.props.auth.id)}}>
+            <NavLink to="/cart" className="navbar-brand" activeClassName="active"><img src="/img/28468-200.png"/></NavLink>
+        </button>
+          
+        </li>
+      </ul>
+    )
+  }
 }
+
 
 /* -----------------    CONTAINER     ------------------ */
 
 import { logout } from 'APP/app/reducers/auth'
+import { getCurrent } from 'APP/app/reducers/cart'
+
 
 const mapStateToProps = ({ auth }) => ({ auth });
 
 
-
-export default withRouter(connect(mapStateToProps, { logout })(Navbar));
+export default withRouter(connect(mapStateToProps, { logout, getCurrent })(Navbar));

@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Sidebar from '../Sidebar';
-import GuitarItem from './GuitarItem';
+import { getCurrent } from 'APP/app/reducers/cart'
+import GuitarItem from './Guitar/GuitarItem';
 
 /* -----------------    COMPONENT     ------------------ */
 
-class GuitarList extends Component {
+class Cart extends Component {
     constructor() {
         super();
+
     }
 
+    componentDidMount () {
+       this.props.getCurrent(this.props.auth.id);
+    }
 
     render() {
-        const {guitars, auth, brands} = this.props;
-
+        const {cart} = this.props;
         return (
 
             <div className="container">
@@ -25,17 +28,7 @@ class GuitarList extends Component {
               <br />
               <div className="user-list">
                   {
-                      guitars
-                          .filter(guitar => {
-                          //here goes the code to render the guitars based on the join table.... fuck that dude....
-                                
-
-
-
-
-
-                      })
-                      
+                      cart.guitars && cart.guitars
                           .map(guitar => <GuitarItem guitar={guitar} key={guitar.id}/>)
                   }
               </div>
@@ -48,9 +41,9 @@ class GuitarList extends Component {
 
 /* -----------------    CONTAINER     ------------------ */
 
-const mapState = ({guitars, auth, brands}) => ({guitars, auth, brands});
+const mapState = ({cart, auth}) => ({cart, auth});
 
 // const mapDispatch = { addUser };
 
-export default connect(mapState)(GuitarList);
+export default connect(mapState, {getCurrent})(Cart);
 

@@ -11,7 +11,7 @@ class Sidebar extends Component {
 
         return (
             <div className="sidebar">
-                <img src="Rock-Guitar-icon.png" className="guitar-logo"/>
+                <img src="/Rock-Guitar-icon.png" className="guitar-logo"/>
                 <h3 id="header">Brand:</h3>
                 <ul className="sidebarUl">
                     {

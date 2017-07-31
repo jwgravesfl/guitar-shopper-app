@@ -1,8 +1,13 @@
 'use strict'
 
-const {STRING} = require('sequelize')
+const Sequelize = require('sequelize')
 
-module.exports = db => db.define('carts_guitars')
+module.exports = db => db.define('carts_guitars', {
+  quantity: {
+    type: Sequelize.INTEGER,
+    defaultValue: 1
+  }
+}) 
 
 module.exports.associations = (Carts_Guitars, {Cart, Guitar}) => {
   Carts_Guitars.belongsTo(Cart)

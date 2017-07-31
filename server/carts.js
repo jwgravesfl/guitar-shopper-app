@@ -1,5 +1,7 @@
-const db = require('APP/db')
-const Cart = db.model('carts')
+const db = require('APP/db');
+const Cart = db.model('carts');
+const Guitar = db.model('guitars');
+const Carts_Guitars = db.model('carts_guitars');
 
 module.exports = require('express').Router()
     .get('/',
@@ -12,20 +14,62 @@ module.exports = require('express').Router()
         Cart.create(req.body)
             .then(cart => res.status(201).json(cart))
             .catch(next))
+
     .get('/:userId',
     // mustBeLoggedIn,
     (req, res, next) =>
-        cart.findOne({where: {
-            user_id: req.params.userId
-        }})
+        Cart.findOne({
+            where: {
+                user_id: req.params.userId
+            }, include: [Guitar]
+        })
             .then(cart => res.json(cart))
             .catch(next))
-    // .put('/:id',
-    // // mustBeLoggedIn,
-    // (req, res, next) =>
-    //     Guitar.update(req.body, {where: {id:req.params.id}})
-    //         .then(guitar => res.json(guitar))
-    //         .catch(next))
+
+    .post('/:cartId',
+    // mustBeLoggedIn,
+    (req, res, next) => {
+
+        const cartProm = Cart.findOne({
+            where: {
+                id: req.params.cartId
+            }
+        });
+
+        console.log('body', req.body)
+        const guitarProm = Guitar.findOne({
+            where: {
+                id: req.body.guitarId
+            }
+        });
+
+        const cartGuitar = Carts_Guitars.findOne({
+            where: {
+                cart_id: req.params.cartId,
+                guitar_id: req.body.guitarId
+            }
+        })
+
+        Promise.all([cartProm, guitarProm, cartGuitar])
+        .then((proms) => {
+            const cart = proms[0];
+            const guitar = proms[1];
+            const cgJoinTable = proms[2]
+            cart.addGuitar(guitar.id)
+            .then(something => {
+                console.log(something)
+                if (!something.length) {
+                    console.log('okajsdf');
+                    cgJoinTable.quantity++;
+                    cgJoinTable.save();
+
+                }
+            }); // addGuitar method is actually a find or create
+
+            res.json(cart);
+        })
+    })
+
     // .delete('/:id',
     // // mustBeLoggedIn,
     // (req, res, next) =>
