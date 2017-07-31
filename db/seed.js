@@ -3,7 +3,7 @@
 // const db = require('APP/db')
 const db = require('APP/db')
    // , {User, Thing, Favorite, Promise} = db
-   , { User, Guitar, Brand, Promise } = db
+   , { User, Guitar, Brand, Cart, Promise } = db
    , {mapValues} = require('lodash');
 
 // const faker = require('faker');
@@ -16,6 +16,7 @@ function seedEverything() {
  };
 
  seeded.guitars = guitars(seeded);
+ seeded.carts = carts(seeded);
 
  // seeded.favorites = favorites(seeded);
 
@@ -36,11 +37,12 @@ const users = seed(User, {
  },
 });
 
-// const things = seed(Thing, {
-//   surfing: {name: 'surfing'},
-//   smiting: {name: 'smiting'},
-//   puppies: {name: 'puppies'},
-// })
+
+
+const carts = seed(Cart, ({users}) =>( {
+  godCart: {user_id: users.god.id},
+  barackCart: {user_id: users.barack.id},
+}))
 
 const guitars = seed(Guitar, ({brands}) => ({
        guitar1: {
