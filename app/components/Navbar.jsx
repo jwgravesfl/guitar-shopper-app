@@ -46,7 +46,7 @@ class Navbar extends React.Component {
             {auth ? (this.renderCart()) : (<div></div>)}
             {auth ? (this.renderLogout()) : (<div></div>)}
             {this.renderLoginSignup(auth)}
-          
+
           </div>
         </div>
       </nav>
@@ -85,11 +85,11 @@ class Navbar extends React.Component {
     return (
       <ul className="nav navbar-nav navbar-right">
         <li>
-          <button
+          <NavLink to="/cart" className="navbar-brand" activeClassName="active"><button
             onClick={() => {this.props.getCurrent(this.props.auth && this.props.auth.id)}}>
-            <NavLink to="/cart" className="navbar-brand" activeClassName="active"><img src="/img/28468-200.png"/></NavLink>
-        </button>
-          
+            <img src="/img/28468-200.png"/>
+        </button></NavLink>
+
         </li>
       </ul>
     )

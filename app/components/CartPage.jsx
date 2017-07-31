@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrent } from 'APP/app/reducers/cart'
 import GuitarItem from './Guitar/GuitarItem';
+import CartSideBar from './CartSideBar';
 
 /* -----------------    COMPONENT     ------------------ */
 
@@ -19,8 +20,8 @@ class Cart extends Component {
     render() {
         const {cart} = this.props;
         return (
-
-            <div className="container">
+            <div className="row">
+            <div className="col-lg-8 col-mg-8">
 
               <div className="user-query">
               </div>
@@ -33,10 +34,14 @@ class Cart extends Component {
                   }
               </div>
             </div>
+            <div className="col-lg-4 col-md-4">
+              <CartSideBar />
+            </div>
+            </div>
         );
     }
 
-  
+
 }
 
 /* -----------------    CONTAINER     ------------------ */
