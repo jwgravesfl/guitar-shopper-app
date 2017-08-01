@@ -7,6 +7,7 @@ import GuitarList from './Guitar/GuitarList'
 import SingleBrand from './SingleBrand';
 import SingleGuitar from './SingleGuitar1';
 import Login from './Login'
+import Signup from './Signup'
 import store from '../store';
 import CartPage from './CartPage'
 import { fetchAllBrands } from '../reducers/brands';
@@ -21,12 +22,8 @@ export default class Main extends Component {
 
         const brandsThunk = fetchAllBrands();
         store.dispatch(brandsThunk);
-
-                
     }
     render() {
-
-
         return (
             <div>
                 <Navbar />
@@ -37,6 +34,7 @@ export default class Main extends Component {
                         <Route path='/brands/:id' component={SingleBrand} />
                         <Route path='/guitars/:id' component={SingleGuitar} />
                         <Route path='/login' component={Login} />
+                        <Route path='/signup' component={Signup} />
                         <Route path='/cart' component={CartPage} />
                     </Switch>
                 </div>
