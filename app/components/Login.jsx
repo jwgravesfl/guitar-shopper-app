@@ -4,8 +4,6 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 
 export const Login = ({ login }) => (
 
-
-
   < div className="signin-container" >
     <div className="buffer local">
       <form onSubmit={evt => {
