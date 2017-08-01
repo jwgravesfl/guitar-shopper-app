@@ -43,6 +43,9 @@ class Navbar extends React.Component {
                 <NavLink to="/brands" activeClassName="active">ALL BRANDS</NavLink>
               </li>
             </ul>
+            {/**
+             * auth && whatever component you want to render maybe...
+             */}
             {auth ? (this.renderCart()) : (<div></div>)}
             {auth ? (this.renderLogout()) : (<div></div>)}
             {this.renderLoginSignup(auth)}
@@ -53,6 +56,7 @@ class Navbar extends React.Component {
     );
   }
 
+  //think about making this components...
   renderLoginSignup(auth) {
     return (
       auth ? (<ul className="nav navbar-nav navbar-right"> <h3 >
@@ -101,7 +105,7 @@ class Navbar extends React.Component {
 
 import { logout } from 'APP/app/reducers/auth'
 import { getCurrent } from 'APP/app/reducers/cart'
-
+//be consistent with placing of imports
 
 const mapStateToProps = ({ auth }) => ({ auth });
 

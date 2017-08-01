@@ -3,7 +3,7 @@ import { withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 export default class BrandItem extends Component {
-
+//make a function
     render() {
 
         const {brand} = this.props;

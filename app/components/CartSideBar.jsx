@@ -6,6 +6,7 @@ class CartSideBar extends Component {
 
   render() {
     const { cart } = this.props;
+    //could be in a utils function
     const totalPrice = (this.props.cart.guitars)
       ? cart.guitars
         .map(guitar => {

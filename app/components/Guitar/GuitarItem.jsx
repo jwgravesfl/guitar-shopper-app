@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 // import { removeStory } from '../../redux/stories';
 
 /* -----------------    COMPONENT     ------------------ */
-
+//  OB - BJM see if you actually need a class...
+// dead code...
 class GuitarItem extends React.Component {
 
   render() {

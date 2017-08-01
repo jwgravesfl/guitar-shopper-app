@@ -16,13 +16,14 @@ import { fetchAllGuitars } from '../reducers/guitars';
 export default class Main extends Component {
 
     componentDidMount() {
+        //To think about, may not need to dispatch all here
         const guitarsThunk = fetchAllGuitars();
         store.dispatch(guitarsThunk);
 
         const brandsThunk = fetchAllBrands();
         store.dispatch(brandsThunk);
 
-                
+
     }
     render() {
 

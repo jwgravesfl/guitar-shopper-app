@@ -44,6 +44,7 @@ export const addToCart = (guitarId, userId, cartId) => dispatch => {
     })
 }
 
+// OB/BJM: you have access to `getState` in your thunk
 export const removeFromCart = (guitarId, cartId, userId) => dispatch => {
   return axios.delete(`/api/carts/${cartId}`, {data:{guitarId}})
     .then(res => res.data)

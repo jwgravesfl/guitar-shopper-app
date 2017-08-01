@@ -22,6 +22,7 @@ class SingleGuitar extends Component {
             price = guitar.price;
             brandId = guitar.brand_id;
 
+            //you said you don't need this...
             const single_brand_array = (brands.filter(brand => brand.id === brandId));
             if (single_brand_array.length) {
                 brandName = single_brand_array[0].name;
@@ -29,7 +30,7 @@ class SingleGuitar extends Component {
         }
 
         return (
-            
+
             <div className="list-group-item min-content user-item">
                 <div className="media">
                     <div className="media-left media-middle icon-container">
@@ -70,7 +71,7 @@ class SingleGuitar extends Component {
                     </div>
                 </div>
             )
-        }   
+        }
     }
 
 import { addToCart } from 'APP/app/reducers/cart'

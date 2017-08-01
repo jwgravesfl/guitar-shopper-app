@@ -5,8 +5,8 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 export const Login = ({ login }) => (
 
 
-
-  < div className="signin-container" >
+//spaces???
+  <div className="signin-container" >
     <div className="buffer local">
       <form onSubmit={evt => {
         evt.preventDefault()
@@ -49,7 +49,7 @@ export const Login = ({ login }) => (
         </a>
       </p>
     </div>
-  </div >
+  </div>
 )
 
 import { login } from 'APP/app/reducers/auth'

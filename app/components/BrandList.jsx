@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import BrandItem from './BrandItem';
-
+//needs to be a class?
 class AllBrands extends Component {
   constructor(props) {
     super(props);

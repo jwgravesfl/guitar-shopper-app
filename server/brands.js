@@ -4,6 +4,7 @@
 const db = require('APP/db');
 const Brand = db.model('brands');
 
+//use must be logged in...
 module.exports = require('express').Router()
     .get('/',
         (req, res, next) =>

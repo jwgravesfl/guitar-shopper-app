@@ -5,7 +5,8 @@ import Sidebar from '../Sidebar';
 import GuitarItem from './GuitarItem';
 
 /* -----------------    COMPONENT     ------------------ */
-
+// OB BJM - dead code
+//
 class GuitarList extends Component {
     constructor() {
         super();
@@ -20,6 +21,7 @@ class GuitarList extends Component {
             //   category: ''
         };
 
+        //can use ES6 binding of this
         this.filterQueryGuitar = this.filterQueryGuitar.bind(this);
         this.renderGuitarSearch = this.renderGuitarSearch.bind(this);
         this.handleBrandsCheck = this.handleBrandsCheck.bind(this);
@@ -68,6 +70,7 @@ class GuitarList extends Component {
     handleBrandsCheck(event, brandId) {
 
         if (event.target.checked) {
+            // this.setState for react to know...
             this.state.checked++;
             this.setState({
                 filteredBrands: this.state.filteredBrands.concat([brandId])
@@ -169,7 +172,7 @@ class GuitarList extends Component {
             </div>
         );
     }
-
+//DEAD CODE>>>
     filterQueryGuitar(guitar) {
         const nameMatch = new RegExp(this.state.name, 'i');
         // const emailMatch = new RegExp(this.state.email, 'i');

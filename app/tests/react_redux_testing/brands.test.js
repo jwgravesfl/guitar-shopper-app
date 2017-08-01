@@ -101,7 +101,8 @@ describe('Testing the brand components', () => {
         websiteURL: 'https://www.taylorguitars.com/'
       }
 
-    const brandComponent = shallow(< BrandItem brand={singleBrand} />, {
+      //spaces...
+    const brandComponent = shallow(<BrandItem brand={singleBrand}/>, {
       context: {
         store
       }
