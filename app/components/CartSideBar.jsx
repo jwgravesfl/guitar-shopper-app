@@ -2,17 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
+// utils funcs
+import { calculateTotalPrice } from '../utils/reactUtils';
+
 class CartSideBar extends Component {
 
   render() {
     const { cart } = this.props;
-    const totalPrice = (this.props.cart.guitars)
-      ? cart.guitars
-        .map(guitar => {
-          return guitar.carts_guitars.quantity * guitar.price
-        })
-        .reduce((a, b) => a + b)
-      : 0;
+    const totalPrice = (cart.guitars) ? calculateTotalPrice(cart.guitars) : 0;
 
     return (
       <div className="cart-sidebar">

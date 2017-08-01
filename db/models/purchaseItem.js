@@ -7,9 +7,12 @@ module.exports = db => db.define('purchaseItems', {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
     },
+    price: {
+        type: Sequelize.FLOAT
+    }
 })
 
-//associations: user, guitar, order, 
+//associations: user, guitar, order,
 
 // module.exports.associations = (Thing, {User, Favorite}) => {
 //   Thing.belongsToMany(User, {as: 'lovers', through: Favorite})

@@ -1,7 +1,14 @@
 import axios from 'axios';
 
+import { updateOrder } from './order';
+
+// utils funcs
+import { calculateTotalPrice } from '../utils/reactUtils';
+
 // Action
 const SET_CURRENT_CART = 'SET_CURRENT_CART';
+const CLEAR_CART = 'CLEAR_CART';
+const GET_CART = 'GET_CART'
 
 // Action Creators
 export const setCurrentCart = (cart) => {
@@ -11,11 +18,30 @@ export const setCurrentCart = (cart) => {
   }
 }
 
+export const clearCart = () => {
+  return {
+    type: CLEAR_CART
+  }
+}
+
+export const getCart = () => {
+  return {
+    type: GET_CART
+  }
+}
+
 //Reducer
 export default (cart = {}, action) => {
   switch (action.type) {
+
     case SET_CURRENT_CART:
       return action.cart;
+
+    case CLEAR_CART:
+      return {};
+
+    case GET_CART:
+      return cart;
 
     default:
       return cart
@@ -53,5 +79,32 @@ export const removeFromCart = (guitarId, cartId, userId) => dispatch => {
     })
 }
 
+export const checkout = (infoObj) => dispatch => {
+
+  startPromise()
+  .then(() => {
+    return dispatch(getCart());
+  })
+  .then(cart => {
+    infoObj.totalPrice = calculateTotalPrice(currentCart.guitars);
+    infoObj.guitars = currentCart.guitars.map(guitar => {
+    return {
+      guitarId: guitar.id,
+      price: guitar.price
+    }
+  })
+  infoObj.cartId = currentCart.id;
+  })
+
+  return axios.post('/api/carts/checkout', infoObj)
+  .then(res => res.data)
+  .then(order => dispatch(updateOrder(order)))
+  .then(() => dispatch(clearCart()));
+}
 
 
+function startPromise() {
+  return new Promise((resolve, reject) => {
+    resolve(1);
+  })
+}

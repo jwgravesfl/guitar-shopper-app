@@ -428,3 +428,7 @@ td, th {
 .cart-sidebar-guitar {
   border:1px solid gray;
 }
+
+.checkout-page {
+  text-align:center;
+}
