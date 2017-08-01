@@ -36,7 +36,7 @@ export const Signup = ({ signUp }) => (
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-block btn-primary">Signup</button>
+                <button type="submit" className="btn btn-block btn-primary">signup</button>
             </form>
         </div>
         <div className="or buffer">

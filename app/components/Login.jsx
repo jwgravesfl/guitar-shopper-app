@@ -28,7 +28,7 @@ export const Login = ({ login }) => (
             required
           />
         </div>
-        <button type="submit" className="btn btn-block btn-primary">Login</button>
+        <button type="submit" className="btn btn-block btn-primary">login</button>
       </form>
     </div>
     <div className="or buffer">

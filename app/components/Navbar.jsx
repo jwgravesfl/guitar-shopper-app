@@ -13,59 +13,66 @@ class Navbar extends React.Component {
     this.renderCart = this.renderCart.bind(this);
   }
 
-
-  render() {
-    const { auth } = this.props;
-    if (auth) {
-      this.props.getCurrent(auth.id);
+    render() {
+        const {auth} = this.props;
+        if (auth) {
+            this.props.getCurrent(auth.id);
+        }
+        return (
+            <nav className="navbar navbar-default">
+                <div className="container">
+                    <div className="navbar-header">
+                        <button
+                            type="button"
+                            className="navbar-toggle collapsed"
+                            data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                            <span className="icon-bar"/>
+                            <span className="icon-bar"/>
+                            <span className="icon-bar"/>
+                        </button>
+                        <Link className="navbar-brand" to="/"><img src="/Rock-Guitar-icon.png"/></Link>
+                    </div>
+                    <div className="collapse navbar-collapse">
+                        <ul className="nav navbar-nav">
+                            <li>
+                                <NavLink to="/guitars" activeClassName="active">ALL GUITARS</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/brands" activeClassName="active">ALL BRANDS</NavLink>
+                            </li>
+                        </ul>
+                        {auth ? (this.renderLogout()) : null}
+                        {auth ? (this.renderCart()) : null}
+                        {auth ? (this.renderUser(auth)) : (this.renderLoginSignup(auth))}
+                    </div>
+                </div>
+            </nav>
+        );
     }
-    return (
-      <nav className="navbar navbar-default">
-        <div className="container">
-          <div className="navbar-header">
-            <button
-              type="button"
-              className="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target=".navbar-collapse">
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-            </button>
-            <Link className="navbar-brand" to="/"><img src="/Rock-Guitar-icon.png" /></Link>
-          </div>
-          <div className="collapse navbar-collapse">
-            <ul className="nav navbar-nav">
-              <li>
-                <NavLink to="/guitars" activeClassName="active">ALL GUITARS</NavLink>
-              </li>
-              <li>
-                <NavLink to="/brands" activeClassName="active">ALL BRANDS</NavLink>
-              </li>
-            </ul>
-            {auth ? (this.renderCart()) : (<div></div>)}
-            {auth ? (this.renderLogout()) : (<div></div>)}
-            {this.renderLoginSignup(auth)}
 
-          </div>
-        </div>
-      </nav>
-    );
-  }
-
-  renderLoginSignup(auth) {
+  renderUser (auth) {
     return (
-      auth ? (<ul className="nav navbar-nav navbar-right"> <h3 >
-        Welcome, {auth.name}!
-          </h3> </ul>) : (<ul className="nav navbar-nav navbar-right"> <li>
-          <NavLink to="/signup" activeClassName="active">signup</NavLink>
-        </li>
-          <li>
-            <NavLink to="/login" activeClassName="active">login</NavLink>
+        <ul className="nav navbar-nav navbar-right"> <li>
+          <NavLink to="/guitars" activeClassName="active">
+            Welcome, {auth.name}!
+          </NavLink>
           </li>
-        </ul>)
-    );
+        </ul>
+    )
   }
+
+    renderLoginSignup() {
+      return (
+        <ul className="nav navbar-nav navbar-right"> <li>
+            <NavLink to="/signup" activeClassName="active">signup</NavLink>
+          </li>
+            <li>
+              <NavLink to="/login" activeClassName="active">login</NavLink>
+            </li>
+          </ul>
+      );
+    }
 
   renderLogout() {
     return (
@@ -85,17 +92,15 @@ class Navbar extends React.Component {
     return (
       <ul className="nav navbar-nav navbar-right">
         <li>
-          <button
+          <button className="navbar-btn btn btn-default"
             onClick={() => {this.props.getCurrent(this.props.auth && this.props.auth.id)}}>
-            <NavLink to="/cart" className="navbar-brand" activeClassName="active"><img src="/img/28468-200.png"/></NavLink>
+            <NavLink to="/cart" activeClassName="active">{}</NavLink>cart
         </button>
-
         </li>
       </ul>
     )
   }
 }
-
 
 /* -----------------    CONTAINER     ------------------ */
 
