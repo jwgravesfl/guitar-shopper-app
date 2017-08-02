@@ -13,9 +13,9 @@ class Navbar extends React.Component {
     this.renderCart = this.renderCart.bind(this);
   }
 
-
   render() {
     const { auth } = this.props;
+
     if (auth) {
       this.props.getCurrent(auth.id);
     }
@@ -43,29 +43,37 @@ class Navbar extends React.Component {
                 <NavLink to="/brands" activeClassName="active">ALL BRANDS</NavLink>
               </li>
             </ul>
-            {auth ? (this.renderCart()) : (<div></div>)}
-            {auth ? (this.renderLogout()) : (<div></div>)}
-            {this.renderLoginSignup(auth)}
-
+            {auth ? (this.renderCart(auth)) : null}
+            {auth ? (this.renderLogout()) : null}
+            {auth ? (this.renderUser(auth)) : (this.renderLoginSignup(auth))}
           </div>
         </div>
       </nav>
     );
   }
 
-  renderLoginSignup(auth) {
+  renderUser (auth) {
     return (
-      auth ? (<ul className="nav navbar-nav navbar-right"> <h3 >
-        Welcome, {auth.name}!
-          </h3> </ul>) : (<ul className="nav navbar-nav navbar-right"> <li>
-          <NavLink to="/signup" activeClassName="active">signup</NavLink>
-        </li>
-          <li>
-            <NavLink to="/login" activeClassName="active">login</NavLink>
+        <ul className="nav navbar-nav navbar-right"> <li>
+          <NavLink to="/guitars" activeClassName="active">
+            Welcome, {auth.name}!
+          </NavLink>
           </li>
-        </ul>)
-    );
+        </ul>
+    )
   }
+
+    renderLoginSignup() {
+      return (
+        <ul className="nav navbar-nav navbar-right"> <li>
+            <NavLink to="/signup" activeClassName="active">signup</NavLink>
+          </li>
+            <li>
+              <NavLink to="/login" activeClassName="active">login</NavLink>
+            </li>
+          </ul>
+      );
+    }
 
   renderLogout() {
     return (
@@ -81,21 +89,19 @@ class Navbar extends React.Component {
     );
   }
 
-  renderCart() {
-    return (
-      <ul className="nav navbar-nav navbar-right">
-        <li>
-          <button
-            onClick={() => {this.props.getCurrent(this.props.auth && this.props.auth.id)}}>
-            <NavLink to="/cart" className="navbar-brand" activeClassName="active"><img src="/img/28468-200.png"/></NavLink>
-        </button>
-
-        </li>
-      </ul>
-    )
-  }
+    renderCart(auth) {
+        return (
+            <ul className="nav navbar-nav navbar-right">
+                <li>
+                        <button className="navbar-btn btn btn-default"
+                                onClick={() => {this.props.getCurrent(auth && auth.id)}}>
+                            <NavLink to="/cart">cart</NavLink>
+                        </button>
+                </li>
+            </ul>
+        )
+    }
 }
-
 
 /* -----------------    CONTAINER     ------------------ */
 

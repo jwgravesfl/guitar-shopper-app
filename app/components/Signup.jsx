@@ -10,7 +10,7 @@ export const Signup = ({ signUp }) => (
                 signUp(evt.target.name.value, evt.target.email.value, evt.target.password.value)
             }}>
                 <div className="form-group">
-                    <label>name</label>
+                    <label>username</label>
                     <input
                         name="name"
                         type="name"
@@ -36,7 +36,7 @@ export const Signup = ({ signUp }) => (
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-block btn-primary">Signup</button>
+                <button type="submit" className="btn btn-block btn-primary">signup</button>
             </form>
         </div>
         <div className="or buffer">
@@ -48,10 +48,10 @@ export const Signup = ({ signUp }) => (
             <p>
                 <a
                     target="_self"
-                    href="/auth/google"
+                    href="/api/auth/login/google"
                     className="btn btn-social btn-google">
                     <i className="fa fa-google" />
-                    <span> with Google</span>
+                    <button className="btn btn-block btn-primary">signup with Google</button>
                 </a>
             </p>
         </div>

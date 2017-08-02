@@ -8,10 +8,6 @@ import CartSideBar from './CartSideBar';
 /* -----------------    COMPONENT     ------------------ */
 
 class Cart extends Component {
-    constructor() {
-        super();
-
-    }
 
     componentDidMount () {
        this.props.getCurrent(this.props.auth.id);
@@ -19,6 +15,7 @@ class Cart extends Component {
 
     render() {
         const {cart, auth} = this.props;
+
         return (
             <div className="row">
             <div className="col-lg-8 col-mg-8">
@@ -29,7 +26,7 @@ class Cart extends Component {
               <br />
               <div className="user-list">
                   {
-                      cart.guitars && cart.guitars
+                      cart.guitars
                           .map(guitar => <div key={guitar.id}>
                               <GuitarItem guitar={guitar} key={guitar.id}/>
                               <button className="navbar-btn btn btn-default"
