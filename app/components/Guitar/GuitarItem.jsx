@@ -20,7 +20,7 @@ class GuitarItem extends React.Component {
                   </div>
                 </NavLink>
                   <h5 className="tucked-list">
-                    <span>Brand: <NavLink to={`/brands/${guitar.brand.id}`}>
+                    <span>Brand: <NavLink to={`/brands/${guitar.brand && guitar.brand.id}`}>
                         {guitar.brand && guitar.brand.name}</NavLink> | </span>
                     <span>Type: {guitar.category} | </span>
                     <span>Price: ${guitar.price}</span>

@@ -5,6 +5,8 @@ const passport = require('passport')
 const {User, OAuth} = require('APP/db')
 const auth = require('express').Router()
 
+const google = require ('./secrets');
+
 /*************************
  * Auth strategies
  *
@@ -33,6 +35,9 @@ const auth = require('express').Router()
 
 // Facebook needs the FACEBOOK_CLIENT_ID and FACEBOOK_CLIENT_SECRET
 // environment variables.
+
+// console.log("AUTH.JS", google);
+
 OAuth.setupStrategy({
   provider: 'facebook',
   strategy: require('passport-facebook').Strategy,
@@ -50,9 +55,10 @@ OAuth.setupStrategy({
   provider: 'google',
   strategy: require('passport-google-oauth').OAuth2Strategy,
   config: {
-    clientID: env.GOOGLE_CLIENT_ID,
-    clientSecret: env.GOOGLE_CLIENT_SECRET,
-    callbackURL: `${app.baseUrl}/api/auth/login/google`,
+    clientID: google.GOOGLE_CLIENT_ID,
+    clientSecret: google.GOOGLE_CLIENT_SECRET,
+    // callbackURL: `${app.baseUrl}/api/auth/login/google`,
+      callbackURL: `${app.baseUrl}/api/auth/login/google`,
   },
   passport
 })
@@ -134,7 +140,7 @@ auth.get('/login/:strategy', (req, res, next) =>
                     // their friends or email), or perform actions on their behalf.
     successRedirect: '/',
     // Specify other config here
-  })(req, res, next)
+})(req, res, next)
 )
 
 auth.post('/logout', (req, res) => {

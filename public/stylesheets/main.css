@@ -84,6 +84,7 @@ select {
   padding-left: 1vh;
   padding-right: 1vh;
   text-align: center;
+  white-space: pre-wrap;
   color: #777777;
 }
 
@@ -378,6 +379,10 @@ input.form-like[disabled] {
   overflow-y: auto;
   border-right: 2px solid #555;
   z-index: 1;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .sidebar::-webkit-scrollbar {

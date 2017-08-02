@@ -13,43 +13,44 @@ class Navbar extends React.Component {
     this.renderCart = this.renderCart.bind(this);
   }
 
-    render() {
-        const {auth} = this.props;
-        if (auth) {
-            this.props.getCurrent(auth.id);
-        }
-        return (
-            <nav className="navbar navbar-default">
-                <div className="container">
-                    <div className="navbar-header">
-                        <button
-                            type="button"
-                            className="navbar-toggle collapsed"
-                            data-toggle="collapse"
-                            data-target=".navbar-collapse">
-                            <span className="icon-bar"/>
-                            <span className="icon-bar"/>
-                            <span className="icon-bar"/>
-                        </button>
-                        <Link className="navbar-brand" to="/"><img src="/Rock-Guitar-icon.png"/></Link>
-                    </div>
-                    <div className="collapse navbar-collapse">
-                        <ul className="nav navbar-nav">
-                            <li>
-                                <NavLink to="/guitars" activeClassName="active">ALL GUITARS</NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/brands" activeClassName="active">ALL BRANDS</NavLink>
-                            </li>
-                        </ul>
-                        {auth ? (this.renderLogout()) : null}
-                        {auth ? (this.renderCart()) : null}
-                        {auth ? (this.renderUser(auth)) : (this.renderLoginSignup(auth))}
-                    </div>
-                </div>
-            </nav>
-        );
+  render() {
+    const { auth } = this.props;
+
+    if (auth) {
+      this.props.getCurrent(auth.id);
     }
+    return (
+      <nav className="navbar navbar-default">
+        <div className="container">
+          <div className="navbar-header">
+            <button
+              type="button"
+              className="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target=".navbar-collapse">
+              <span className="icon-bar" />
+              <span className="icon-bar" />
+              <span className="icon-bar" />
+            </button>
+            <Link className="navbar-brand" to="/"><img src="/Rock-Guitar-icon.png" /></Link>
+          </div>
+          <div className="collapse navbar-collapse">
+            <ul className="nav navbar-nav">
+              <li>
+                <NavLink to="/guitars" activeClassName="active">ALL GUITARS</NavLink>
+              </li>
+              <li>
+                <NavLink to="/brands" activeClassName="active">ALL BRANDS</NavLink>
+              </li>
+            </ul>
+            {auth ? (this.renderCart(auth)) : null}
+            {auth ? (this.renderLogout()) : null}
+            {auth ? (this.renderUser(auth)) : (this.renderLoginSignup(auth))}
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   renderUser (auth) {
     return (
@@ -88,18 +89,18 @@ class Navbar extends React.Component {
     );
   }
 
-  renderCart() {
-    return (
-      <ul className="nav navbar-nav navbar-right">
-        <li>
-          <button className="navbar-btn btn btn-default"
-            onClick={() => {this.props.getCurrent(this.props.auth && this.props.auth.id)}}>
-            <NavLink to="/cart" activeClassName="active">{}</NavLink>cart
-        </button>
-        </li>
-      </ul>
-    )
-  }
+    renderCart(auth) {
+        return (
+            <ul className="nav navbar-nav navbar-right">
+                <li>
+                        <button className="navbar-btn btn btn-default"
+                                onClick={() => {this.props.getCurrent(auth && auth.id)}}>
+                            <NavLink to="/cart">cart</NavLink>
+                        </button>
+                </li>
+            </ul>
+        )
+    }
 }
 
 /* -----------------    CONTAINER     ------------------ */
