@@ -11,6 +11,8 @@ import Signup from './Signup'
 import Home from './Home';
 import store from '../store';
 import CartPage from './CartPage'
+import Checkout from './Checkout'
+
 import { fetchAllBrands } from '../reducers/brands';
 import { fetchAllGuitars } from '../reducers/guitars';
 
@@ -23,6 +25,7 @@ export default class Main extends Component {
 
         const brandsThunk = fetchAllBrands();
         store.dispatch(brandsThunk);
+
     }
     render() {
         return (
@@ -38,6 +41,7 @@ export default class Main extends Component {
                         <Route path='/login' component={Login} />
                         <Route path='/signup' component={Signup} />
                         <Route path='/cart' component={CartPage} />
+                        <Route path='/checkout' component={Checkout} />
                     </Switch>
                 </div>
 

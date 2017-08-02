@@ -2,6 +2,8 @@ const db = require('APP/db');
 const Cart = db.model('carts');
 const Guitar = db.model('guitars');
 const Carts_Guitars = db.model('carts_guitars');
+const Order = db.model('orders');
+const PurchaseItem = db.model('purchaseItems');
 
 module.exports = require('express').Router()
     .get('/',
@@ -73,10 +75,42 @@ module.exports = require('express').Router()
 
     .delete('/:cartId', (req, res, next) => {
         Cart.findById(req.params.cartId)
-            .then(cart => 
+            .then(cart =>
             {console.log(req.body)
             cart.removeGuitar(req.body.guitarId)})
             .then(res.sendStatus(204))
+    })
+
+    .post('/checkout', (req, res, next) => {
+        var completedOrder;
+
+        Order.create({
+            address: req.body.address,
+            city: req.body.city,
+            state: req.body.state,
+            zipcode: req.body.zipcode,
+            creditCardNumber: req.body.card-number,
+            cardHolderName: req.body.card-holder-name,
+            expirationMonth: req.body.expiry-month,
+            expirationYear: req.body.expiry-year
+        })
+        .then(order => {
+            completedOrder = order;
+            const purchaseItems = req.body.guitars.map((guitar) => {
+                return {
+                    orderId: order.id,
+                    price: guitar.price,
+                    guitarId: guitar.id
+                }
+            })
+            return Promise.all(purchaseItems)
+            .map(item => {
+                return PurchaseItem.create(item)
+            })
+        })
+        .then(() => {
+            res.status(201).json(completedOrder);
+        })
     })
 
     // .delete('/:id',

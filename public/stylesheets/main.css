@@ -473,11 +473,13 @@ td, th {
 .cart-sidebar-guitar {
   border:1px solid gray;
 }
+.checkout-page {
+  text-align:center;
+}
 
 .guitarShopper {
   width: 60vh;
   float: left;
   padding-bottom: 1000%
 }
-
 
