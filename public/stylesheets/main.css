@@ -2,12 +2,14 @@ html {
   background-color: white; }
 
 body {
-  background: repeating-linear-gradient(45deg, #e3e3e3 0px, white 10px, #ccc 1px, #ccc 11px);
+  /*background: repeating-linear-gradient(45deg, #e3e3e3 0px, white 10px, #ccc 1px, #ccc 11px);*/
+  background-image: url(https://cdn.shopify.com/s/files/1/0242/9781/products/ethan_russell_rolling_stones_on_stage_1969_daffa5fe-3a76-4e61-bdc4-944e5c3e4dcd_2048x2048.jpg?v=1391693343);
   background-color: white;
 }
 
 a, span, h1, h2, h3, h4, h5, h6, div {
-  font-family: 'Verdana'; }
+  font-family: 'Verdana';
+}
 
 select {
   -webkit-appearance: menulist-button;
@@ -73,15 +75,33 @@ select {
 
 .tucked {
   padding-left: 1vh;
-  padding-right: 1vh; }
-
-.tucked #text {
-  white-space:pre-wrap;
+  padding-right: 1vh;
+  text-align: left;
+  color: #777777;
 }
 
-.tucked #title {
+.tucked-list {
+  padding-left: 1vh;
+  padding-right: 1vh;
+  text-align: center;
+  white-space: pre-wrap;
+  color: #777777;
+}
+
+.tucked-list #text {
   white-space:pre-wrap;
-  padding-right: 5vh;
+  text-align: left;
+}
+
+.tucked-list #title {
+  white-space:pre-wrap;
+  padding-right: 0;
+  text-align: center;
+}
+
+.guitar-pic {
+  padding-top: 1vh;
+  padding-bottom: 3vh;
 }
 
 .map {
@@ -107,7 +127,8 @@ select {
 .navbar {
   border: none;
   border-radius: 0;
-  border-bottom: 4px dotted navy; }
+  border-bottom: 2px solid #555;
+  z-index: 2;  }
   .navbar .navbar-nav a.active {
     background: transparent;
     position: relative; }
@@ -136,6 +157,7 @@ select {
     border-top: 0.8em solid transparent;
     border-right: none; } }
 
+
 html {
   position: relative;
   min-height: 100%; }
@@ -153,12 +175,14 @@ body {
   border-top: 1px dotted #777; }
 
 .signin-container {
+  color: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: center;
   min-width: -webkit-min-content; }
   .signin-container > * {
-    width: 33%; }
+    width: 33%;
+  }
   .signin-container .local {
     max-width: 18em;
     text-align: left; }
@@ -224,8 +248,24 @@ input.form-like[disabled] {
     border-color: transparent;
 }
 
+h1 {
+  font-size: 600%;
+}
+
 .home {
-  font-size: 22px; }
+  font-family: Verdana, Geneva, sans-serif;
+  text-align: center;
+  font-weight: bolder;
+  color: #bbbbbb;
+}
+
+/*.home #header {*/
+  /*font-size: xx-large;*/
+/*}*/
+
+.home #subheader {
+  font-style: italic;
+}
 
 @media (max-width: 1400px) {
   .home {
@@ -293,7 +333,7 @@ input.form-like[disabled] {
   position: relative; }
   .user-item .icon-container .glyphicon {
     font-size: 40px;
-    padding: 20px;
+    padding: 0;
     border-radius: 50%;  }
   .user-item .icon-container .glyphicon.clickable {
     background-color: #f0ad4e;
@@ -301,7 +341,7 @@ input.form-like[disabled] {
     .user-item .icon-container .glyphicon.clickable:hover {
       background-color: #eea236; }
   .user-item .icon-container img {
-    width: 30vh; }
+    width: 20vh; }
 
 .user-item .media-heading {
   margin-top: 3px; }
@@ -347,13 +387,18 @@ input.form-like[disabled] {
 .sidebar {
   position: fixed;
   left: 0;
-  top: 55px;
+  top: 0;
   padding: 10 !important;
   background: silver;
   height: 100vh;
   width: 25vh;
   overflow-y: auto;
   border-right: 2px solid #555;
+  z-index: 1;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -428,7 +473,13 @@ td, th {
 .cart-sidebar-guitar {
   border:1px solid gray;
 }
-
 .checkout-page {
   text-align:center;
 }
+
+.guitarShopper {
+  width: 60vh;
+  float: left;
+  padding-bottom: 1000%
+}
+

@@ -4,8 +4,6 @@ import { Link, NavLink, withRouter } from 'react-router-dom';
 
 export const Login = ({ login }) => (
 
-
-
   < div className="signin-container" >
     <div className="buffer local">
       <form onSubmit={evt => {
@@ -30,7 +28,7 @@ export const Login = ({ login }) => (
             required
           />
         </div>
-        <button type="submit" className="btn btn-block btn-primary">Login</button>
+        <button type="submit" className="btn btn-block btn-primary">login</button>
       </form>
     </div>
     <div className="or buffer">
@@ -42,10 +40,10 @@ export const Login = ({ login }) => (
       <p>
         <a
           target="_self"
-          href="/auth/google"
+          href="/api/auth/login/google"
           className="btn btn-social btn-google">
           <i className="fa fa-google" />
-          <span> with Google</span>
+          <button className="btn btn-block btn-primary">login with Google</button>
         </a>
       </p>
     </div>

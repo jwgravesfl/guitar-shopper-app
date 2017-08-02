@@ -20,7 +20,7 @@ class CartSideBar extends Component {
               const price = guitar.carts_guitars.quantity * guitar.price;
 
               return (
-                <div className="cart-sidebar-guitar">
+                <div key={guitar.id} className="cart-sidebar-guitar">
                   <h4><span className="cart-sidebar-num">{i + 1}</span>.  {guitar.model}</h4>
                   <p>Quantity:  {guitar.carts_guitars.quantity}
                   </p>

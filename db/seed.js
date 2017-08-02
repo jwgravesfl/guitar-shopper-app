@@ -61,7 +61,7 @@ const guitars = seed(Guitar, ({brands}) => ({
            category: 'Acoustic',
            orientation: 'right',
            description: 'A very solid Martin guitar',
-           imageURL: '/img/dreadnought.png',
+           imageURL: '/img/dreadnought.jpg',
            price: 599.99,
            brand_id: brands.Martin.id
        },
@@ -70,7 +70,7 @@ const guitars = seed(Guitar, ({brands}) => ({
            category: 'Acoustic',
            orientation: 'right',
            description: 'A very solid Taylor guitar',
-           imageURL: 'https://images-na.ssl-images-amazon.com/images/I/71e%2BfwCyLvL._SY450_.jpg',
+           imageURL: '/img/200series.jpg',
            price: 1199.99,
            brand_id: brands.Taylor.id
        },
