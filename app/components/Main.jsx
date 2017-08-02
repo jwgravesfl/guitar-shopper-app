@@ -8,6 +8,7 @@ import SingleBrand from './SingleBrand';
 import SingleGuitar from './SingleGuitar1';
 import Login from './Login'
 import Signup from './Signup'
+import Home from './Home';
 import store from '../store';
 import CartPage from './CartPage'
 import { fetchAllBrands } from '../reducers/brands';
@@ -29,6 +30,7 @@ export default class Main extends Component {
                 <Navbar />
                 <div>
                     <Switch>
+                        <Route exact path='/' component={Home} />
                         <Route exact path='/brands' component={BrandList} />
                         <Route exact path='/guitars' component={GuitarList} />
                         <Route path='/brands/:id' component={SingleBrand} />

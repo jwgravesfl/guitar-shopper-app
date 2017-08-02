@@ -248,8 +248,24 @@ input.form-like[disabled] {
     border-color: transparent;
 }
 
+h1 {
+  font-size: 600%;
+}
+
 .home {
-  font-size: 22px; }
+  font-family: Verdana, Geneva, sans-serif;
+  text-align: center;
+  font-weight: bolder;
+  color: #bbbbbb;
+}
+
+/*.home #header {*/
+  /*font-size: xx-large;*/
+/*}*/
+
+.home #subheader {
+  font-style: italic;
+}
 
 @media (max-width: 1400px) {
   .home {
@@ -457,3 +473,11 @@ td, th {
 .cart-sidebar-guitar {
   border:1px solid gray;
 }
+
+.guitarShopper {
+  width: 60vh;
+  float: left;
+  padding-bottom: 1000%
+}
+
+
