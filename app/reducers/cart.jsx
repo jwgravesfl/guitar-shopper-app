@@ -26,6 +26,8 @@ export default (cart = {}, action) => {
 // Thunk Creator
 export const getCurrent = (userId) => dispatch => {
   if (userId) {
+
+
     return axios.get(`/api/carts/${userId}`)
       .then(res => res.data)
       .then(cart => dispatch(setCurrentCart(cart)))
