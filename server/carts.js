@@ -18,12 +18,12 @@ module.exports = require('express').Router()
     .get('/:userId',
     // mustBeLoggedIn,
     (req, res, next) =>
-        Cart.findOne({
+        Cart.findOrCreate({
             where: {
                 user_id: req.params.userId
             }, include: [Guitar]
         })
-            .then(cart => res.json(cart))
+            .then(cart => res.json(cart[0]))
             .catch(next))
 
     .post('/:cartId',
