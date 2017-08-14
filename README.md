@@ -6,6 +6,9 @@ This project was built over the course of 4 days for the 'Grace Shopper' portion
 
 I worked on a three person team, with Matthew Snow (@Msnow90) and Mikhail Qader (@mhq2101). Big thanks to the Fullstack engineering team for providing 'Bones,' the boilerplate on which GuitarShopper was written. 
 
+# View a clickthrough!!
+https://youtu.be/Q2864EceR2o (1.5x speed recommended)
+
 # Overall Comments
 Things I like:
   - How the guitars are laid out on the homepage.
