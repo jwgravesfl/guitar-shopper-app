@@ -13,7 +13,7 @@ Things I like:
   - Local and OAuth login.
   - Cart functionality.
   - All brands page and individual brands pages.
-  - The picture of the rolling stones by Ethan Russel. 
+  - The picture of the rolling stones by Ethan Russell. 
   (https://shop.ethanrussell.com/collections/the-amazing-keith/products/the-rolling-stones-on-stage-champaign-illinois-1969)
 
 Things I don't like:
