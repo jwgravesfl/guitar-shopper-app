@@ -24,6 +24,6 @@ Things I don't like:
 - Not a single test!!!!!!
 
 # Conclusion
-I had a great time building this project. Even though we didn't get as far as I would've liked due to time constraints, I loved working with Snow and Mikhail. I couldn't have asked for a better team dynamic, and I hope I have the opportunity to work with them in the future.
+I had a great time building this project. Even though we didn't get as far as I would've liked, I loved working with Snow and Mikhail. I couldn't have asked for a better team dynamic, and I hope I have the opportunity to work with them in the future.
 
 Thanks for checking out our repo!
