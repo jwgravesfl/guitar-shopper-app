@@ -12,8 +12,9 @@ Things I like:
   - The checkbox filtering functionality.
   - Local and OAuth login.
   - Cart functionality.
-  - All brands page and individual brands page.
-  - The picture of the rolling stones, for which Ethan Russell deserves credit. (https://shop.ethanrussell.com/collections/the-amazing-keith/products/the-rolling-stones-on-stage-champaign-illinois-1969)
+  - All brands page and individual brands pages.
+  - The picture of the rolling stones by Ethan Russel. 
+  (https://shop.ethanrussell.com/collections/the-amazing-keith/products/the-rolling-stones-on-stage-champaign-illinois-1969)
 
 Things I don't like:
 - We didn't follow 'best practices' well enough. More specifically, I would've liked to have seen clearer, more professional git commit messages, and a more uniform coding style throughout. 
